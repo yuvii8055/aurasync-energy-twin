@@ -283,9 +283,19 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Serve static client build if available (Zero-warning HTTP access on port 5000)
-const clientDistPath = path.join(__dirname, '..', '..', 'client', 'dist');
-if (fs.existsSync(clientDistPath)) {
+// Robust client dist path resolution across Render / production / local environments
+const possibleDistPaths = [
+  path.join(__dirname, '..', '..', 'client', 'dist'),
+  path.join(process.cwd(), 'client', 'dist'),
+  path.join(process.cwd(), 'dist'),
+  path.join(__dirname, '..', 'dist'),
+  path.resolve('client/dist'),
+  path.resolve('dist')
+];
+const clientDistPath = possibleDistPaths.find(p => fs.existsSync(p) && fs.existsSync(path.join(p, 'index.html')));
+
+if (clientDistPath) {
+  console.log(`📦 Serving production client bundle from: ${clientDistPath}`);
   app.use(express.static(clientDistPath));
   app.get('*', (req, res, next) => {
     if (req.path.startsWith('/api') || req.path.startsWith('/socket.io') || req.path.startsWith('/uploads')) {
@@ -294,9 +304,26 @@ if (fs.existsSync(clientDistPath)) {
     res.sendFile(path.join(clientDistPath, 'index.html'));
   });
 } else {
+  console.warn('⚠️ Warning: client/dist not found in standard paths');
   app.get('/', (req, res) => {
-    const host = req.hostname || 'localhost';
-    res.redirect(`https://${host}:5173`);
+    // Never redirect to :5173 in cloud/production environments
+    if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
+      return res.status(200).send(`
+        <!DOCTYPE html>
+        <html>
+        <head><title>AuraSync Energy Twin Backend</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>body{font-family:system-ui,-apple-system,sans-serif;background:#030712;color:#f3f4f6;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;padding:20px;box-sizing:border-box;} .card{background:#111827;border:1px solid #374151;border-radius:12px;padding:32px;max-width:480px;text-align:center;box-shadow:0 20px 25px -5px rgba(0,0,0,0.5);} h1{color:#10b981;font-size:24px;margin-bottom:12px;} p{color:#9ca3af;font-size:14px;line-height:1.6;margin-bottom:20px;} .badge{display:inline-block;padding:4px 12px;border-radius:9999px;font-size:12px;font-weight:600;background:#064e3b;color:#34d399;margin-bottom:16px;} .btn{display:inline-block;padding:10px 20px;border-radius:8px;background:#10b981;color:#000;font-weight:bold;text-decoration:none;}</style></head>
+        <body>
+          <div class="card">
+            <span class="badge">● Backend Online</span>
+            <h1>AuraSync Energy Twin</h1>
+            <p>DSATM Campus Digital Twin backend API is running successfully on Render.</p>
+            <a class="btn" href="/health">View Health Diagnostics</a>
+          </div>
+        </body>
+        </html>
+      `);
+    }
+    res.redirect('http://localhost:5173');
   });
 }
 
