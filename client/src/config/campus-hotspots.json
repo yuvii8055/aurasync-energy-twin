@@ -1,0 +1,243 @@
+{
+  "campus": {
+    "name": "Dayananda Sagar Academy of Technology and Management (DSATM)",
+    "location": "Udayapura, Kanakapura Main Road, Bengaluru, Karnataka, India",
+    "center": [77.5146, 12.8252],
+    "zoom": 17.2,
+    "bearing": -20,
+    "pitch": 55,
+    "tilesAttribution": "© OpenStreetMap contributors, © CartoDB / Esri World Imagery"
+  },
+  "buildings": [
+    {
+      "id": "dsatm-main",
+      "name": "Dayananda Sagar Academy of Technology and Management (main building)",
+      "shortName": "DSATM Main",
+      "label": "Dayananda Sagar Academy of Technology and Management (main building)",
+      "assumedLocation": false,
+      "percentagePolygon": [
+        [21.875, 13.0],
+        [48.75, 13.0],
+        [48.75, 36.0],
+        [21.875, 36.0]
+      ],
+      "coordinates": [
+        [77.5135, 12.8262],
+        [77.5152, 12.8262],
+        [77.5152, 12.8248],
+        [77.5135, 12.8248]
+      ],
+      "height": 24,
+      "floors": 6,
+      "department": "CSE, AIML & Campus Administration",
+      "baselineKw": 65.0,
+      "devices": [
+        { "id": "dev-m101-ac", "name": "Faculty AC", "type": "HVAC", "state": "on", "kw": 3.2 },
+        { "id": "dev-m102-lgt", "name": "Classroom 102 LED Grid", "type": "Lighting", "state": "on", "kw": 1.1 },
+        { "id": "dev-m204-ac", "name": "Embedded IoT Lab 204 AC", "type": "HVAC", "state": "on", "kw": 4.5, "anomaly": "empty_room_cooling" },
+        { "id": "dev-aud-prj", "name": "Main Auditorium Projector", "type": "AV", "state": "on", "kw": 2.2 }
+      ],
+      "solarCapacityKw": 45.0,
+      "openTickets": 1
+    },
+    {
+      "id": "dsba",
+      "name": "Dayananda Sagar Business Academy",
+      "shortName": "DSBA Block",
+      "label": "Dayananda Sagar Business Academy",
+      "assumedLocation": false,
+      "percentagePolygon": [
+        [57.5, 13.0],
+        [82.5, 13.0],
+        [82.5, 36.0],
+        [57.5, 36.0]
+      ],
+      "coordinates": [
+        [77.5158, 12.8262],
+        [77.5175, 12.8262],
+        [77.5175, 12.8248],
+        [77.5158, 12.8248]
+      ],
+      "height": 18,
+      "floors": 4,
+      "department": "Management Studies & Executive Education",
+      "baselineKw": 38.0,
+      "devices": [
+        { "id": "dev-dsba-ac1", "name": "Executive Seminar AC", "type": "HVAC", "state": "on", "kw": 3.8 },
+        { "id": "dev-dsba-lgt1", "name": "DSBA Foyer Lights", "type": "Lighting", "state": "on", "kw": 1.5 }
+      ],
+      "solarCapacityKw": 25.0,
+      "openTickets": 0
+    },
+    {
+      "id": "dsatm-mech-civil",
+      "name": "DSATM Mechanical and Civil Engineering",
+      "shortName": "Mech & Civil",
+      "label": "DSATM Mechanical and Civil Engineering",
+      "assumedLocation": false,
+      "percentagePolygon": [
+        [21.875, 44.0],
+        [48.75, 44.0],
+        [48.75, 66.0],
+        [21.875, 66.0]
+      ],
+      "coordinates": [
+        [77.5135, 12.8244],
+        [77.5152, 12.8244],
+        [77.5152, 12.8230],
+        [77.5135, 12.8230]
+      ],
+      "height": 16,
+      "floors": 3,
+      "department": "Mechanical & Civil Engineering Workshops",
+      "baselineKw": 44.0,
+      "devices": [
+        { "id": "dev-mech-cnc", "name": "CNC Machine Lab Circuit", "type": "Industrial", "state": "on", "kw": 8.5 },
+        { "id": "dev-civil-lab", "name": "Concrete Testing Hydraulics", "type": "Industrial", "state": "off", "kw": 6.2 }
+      ],
+      "solarCapacityKw": 30.0,
+      "openTickets": 2
+    },
+    {
+      "id": "block-c",
+      "name": "Block-C",
+      "shortName": "Block-C",
+      "label": "Block-C",
+      "assumedLocation": false,
+      "percentagePolygon": [
+        [57.5, 44.0],
+        [82.5, 44.0],
+        [82.5, 66.0],
+        [57.5, 66.0]
+      ],
+      "coordinates": [
+        [77.5158, 12.8244],
+        [77.5175, 12.8244],
+        [77.5175, 12.8230],
+        [77.5158, 12.8230]
+      ],
+      "height": 20,
+      "floors": 5,
+      "department": "Electronics, ECE & Basic Sciences",
+      "baselineKw": 32.0,
+      "devices": [
+        { "id": "dev-c101-ac", "name": "VLSI Lab AC", "type": "HVAC", "state": "on", "kw": 4.0 },
+        { "id": "dev-c202-lgt", "name": "Physics Lab Lights", "type": "Lighting", "state": "on", "kw": 1.2 }
+      ],
+      "solarCapacityKw": 20.0,
+      "openTickets": 0
+    },
+    {
+      "id": "boys-hostel-1",
+      "name": "Boys Hostel 1",
+      "shortName": "Boys Hostel 1",
+      "label": "Boys Hostel 1",
+      "assumedLocation": false,
+      "percentagePolygon": [
+        [21.875, 74.0],
+        [48.75, 74.0],
+        [48.75, 95.0],
+        [21.875, 95.0]
+      ],
+      "coordinates": [
+        [77.5135, 12.8226],
+        [77.5152, 12.8226],
+        [77.5152, 12.8212],
+        [77.5135, 12.8212]
+      ],
+      "height": 22,
+      "floors": 6,
+      "department": "Student Residential Complex & Dining Mess",
+      "baselineKw": 28.0,
+      "devices": [
+        { "id": "dev-bh1-geyser", "name": "Hostel Central Heat Pump", "type": "Water", "state": "on", "kw": 7.5 },
+        { "id": "dev-bh1-mess", "name": "Hostel Dining Mess Lighting", "type": "Lighting", "state": "on", "kw": 2.4 }
+      ],
+      "solarCapacityKw": 35.0,
+      "openTickets": 1
+    },
+    {
+      "id": "basketball-court",
+      "name": "DSATM Basketball Court",
+      "shortName": "Basketball Court",
+      "label": "DSATM Basketball Court",
+      "assumedLocation": false,
+      "percentagePolygon": [
+        [4.68, 13.5],
+        [13.43, 13.5],
+        [13.43, 33.5],
+        [4.68, 33.5]
+      ],
+      "coordinates": [
+        [77.5122, 12.8262],
+        [77.5130, 12.8262],
+        [77.5130, 12.8250],
+        [77.5122, 12.8250]
+      ],
+      "height": 4,
+      "floors": 1,
+      "department": "Sports & Athletics Infrastructure",
+      "baselineKw": 4.5,
+      "devices": [
+        { "id": "dev-court-flood", "name": "Court LED Floodlights", "type": "Lighting", "state": "off", "kw": 4.5 }
+      ],
+      "solarCapacityKw": 0.0,
+      "openTickets": 0
+    },
+    {
+      "id": "electricpe-ev",
+      "name": "ElectricPe EV charging",
+      "shortName": "ElectricPe EV Hub",
+      "label": "ElectricPe EV charging",
+      "assumedLocation": false,
+      "percentagePolygon": [
+        [7.18, 35.5],
+        [13.75, 35.5],
+        [13.75, 42.5],
+        [7.18, 42.5]
+      ],
+      "coordinates": [
+        [77.5124, 12.8248],
+        [77.5130, 12.8248],
+        [77.5130, 12.8243],
+        [77.5124, 12.8243]
+      ],
+      "height": 5,
+      "floors": 1,
+      "department": "Electric Vehicle Fast Charging Hub",
+      "baselineKw": 22.0,
+      "devices": [
+        { "id": "dev-ev-gun1", "name": "CCS2 60kW DC Fast Gun 1", "type": "EV", "state": "on", "kw": 18.5 },
+        { "id": "dev-ev-gun2", "name": "Type-2 22kW AC Charger", "type": "EV", "state": "off", "kw": 0.0 }
+      ],
+      "solarCapacityKw": 15.0,
+      "openTickets": 0
+    },
+    {
+      "id": "green-belt",
+      "name": "green belt",
+      "shortName": "Green Belt Canopy",
+      "label": "green belt",
+      "assumedLocation": false,
+      "percentagePolygon": [
+        [3.75, 45.0],
+        [13.75, 45.0],
+        [13.75, 93.0],
+        [3.75, 93.0]
+      ],
+      "coordinates": [
+        [77.5120, 12.8241],
+        [77.5130, 12.8241],
+        [77.5130, 12.8213],
+        [77.5120, 12.8213]
+      ],
+      "height": 3,
+      "floors": 0,
+      "department": "Botanical Arboretum & Microgrid Carbon Sink",
+      "baselineKw": 0.0,
+      "devices": [],
+      "solarCapacityKw": 0.0,
+      "openTickets": 0
+    }
+  ]
+}

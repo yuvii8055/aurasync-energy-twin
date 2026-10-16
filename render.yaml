@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: aurasync-energy-twin
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: REFRESH_TOKEN_SECRET
+        generateValue: true
+      - key: PASSKEY_SALT
+        value: aurasync_passkey_salt_dsatm_2026
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash
+      - key: DEFAULT_EMISSION_FACTOR
+        value: "0.71"
+      - key: DEFAULT_TARIFF_INR
+        value: "8.25"
+      - key: SANCTIONED_DEMAND_KVA
+        value: "750"

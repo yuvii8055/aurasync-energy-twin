@@ -1,0 +1,25 @@
+{
+  "name": "aurasync-energy-twin",
+  "version": "1.0.0",
+  "description": "AuraSync Energy Twin - Campus Digital Twin for Dayananda Sagar Academy of Technology & Management (DSATM)",
+  "author": "O(1) Outlaws: AIML Engineers of DSATM",
+  "license": "MIT",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "build": "npm --prefix server install && npm --prefix client install && npm --prefix client run build",
+    "seed": "npm --prefix server run seed",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run dev:server\" \"npm run dev:client\"",
+    "build:client": "npm --prefix client run build",
+    "build:serve": "npm run build:client && node server/src/server.js",
+    "start": "npm --prefix server start",
+    "certs": "node server/src/scripts/generateCerts.js",
+    "tunnel:live": "node server/bin/start-tunnel.js",
+    "tunnel:cf": "node server/bin/start-tunnel.js",
+    "tunnel:ngrok": "ngrok http https://localhost:5173"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

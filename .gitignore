@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Cloudflare executable binary (heavy binary ~50MB)
+server/bin/cloudflared.exe
+*.exe
+
+# Environment & credentials (keep secrets safe)
+.env
+server/.env
+*.env.local
+
+# Ephemeral runtime files
+.tunnel_url
+server/.tunnel_url
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db

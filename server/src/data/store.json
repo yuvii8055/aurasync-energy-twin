@@ -1,0 +1,2895 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-1",
+      "name": "Dr. M. Ravishankar (Principal)",
+      "email": "admin@aurasync.demo",
+      "passwordHash": "$2a$12$eWWQyXV4aTNtNBQGCREITejqEhjfs2TXswAqA/E/VGVB3rB/C/6Za",
+      "role": "admin",
+      "department": "Campus Administration",
+      "passKeyHash": "$2a$12$1xzM6ji.y6N2S.oJaUd3AOt/YSikTgLNd2kw4c3FmFQZ0fHpUlL1e",
+      "twoFAEnabled": true,
+      "approvalStatus": "approved",
+      "failedAttempts": 0,
+      "lockUntil": null,
+      "createdAt": "2026-10-14T15:58:20.773Z",
+      "lastLogin": "2026-10-16T07:04:38.820Z"
+    },
+    {
+      "id": "usr-hod-1",
+      "name": "Dr. Sandhya V. (HOD AIML)",
+      "email": "hod.aiml@aurasync.demo",
+      "passwordHash": "$2a$12$WrfSc6MWn310.a9BG5yZmu7NbgrQ5PeDsnzjokaoWvR6OZDvXqi2e",
+      "role": "hod",
+      "department": "Computer Science and Engineering (AIML)",
+      "passKeyHash": "$2a$12$1xzM6ji.y6N2S.oJaUd3AOt/YSikTgLNd2kw4c3FmFQZ0fHpUlL1e",
+      "twoFAEnabled": true,
+      "approvalStatus": "approved",
+      "failedAttempts": 0,
+      "lockUntil": null,
+      "createdAt": "2026-10-14T15:58:20.774Z",
+      "lastLogin": "2026-10-16T07:00:05.410Z"
+    },
+    {
+      "id": "usr-staff-1",
+      "name": "Prof. Ananya Rao (Assistant Professor)",
+      "email": "faculty@aurasync.demo",
+      "passwordHash": "$2a$12$Qj.rbyACOKmku.mO0G/4.emr9Npm9TNBKzK4FdDeF.dWNg.7SkNP6",
+      "role": "staff",
+      "department": "Computer Science and Engineering (AIML)",
+      "passKeyHash": "$2a$12$1xzM6ji.y6N2S.oJaUd3AOt/YSikTgLNd2kw4c3FmFQZ0fHpUlL1e",
+      "twoFAEnabled": false,
+      "approvalStatus": "approved",
+      "failedAttempts": 0,
+      "lockUntil": null,
+      "createdAt": "2026-10-14T15:58:20.774Z"
+    },
+    {
+      "id": "usr-student-1",
+      "name": "Nikhil Sharma (USN: 1DT23AI045)",
+      "email": "student@aurasync.demo",
+      "passwordHash": "$2a$12$OFZVVldHQ8cwY/AM.IX3sumGbfMgmIakaaMnD89pniCWdogcop8ZG",
+      "role": "student",
+      "department": "Computer Science and Engineering (AIML)",
+      "passKeyHash": "$2a$12$1xzM6ji.y6N2S.oJaUd3AOt/YSikTgLNd2kw4c3FmFQZ0fHpUlL1e",
+      "twoFAEnabled": false,
+      "approvalStatus": "approved",
+      "failedAttempts": 0,
+      "lockUntil": null,
+      "createdAt": "2026-10-14T15:58:20.774Z"
+    },
+    {
+      "id": "usr-worker-1",
+      "name": "Manjunath Gowda (Lead Technician)",
+      "email": "worker@aurasync.demo",
+      "passwordHash": "$2a$12$a5ZChrAUOA3kgC8qYJb/ueDaUB4OOru5Ha.74GbfH/GjyZrJ5BrU.",
+      "role": "worker",
+      "department": "Campus Facilities & Maintenance",
+      "workerSkill": "Electrician",
+      "shift": "Morning (07:00 - 15:30)",
+      "passKeyHash": "$2a$12$1xzM6ji.y6N2S.oJaUd3AOt/YSikTgLNd2kw4c3FmFQZ0fHpUlL1e",
+      "twoFAEnabled": false,
+      "approvalStatus": "approved",
+      "failedAttempts": 0,
+      "lockUntil": null,
+      "createdAt": "2026-10-14T15:58:20.774Z"
+    }
+  ],
+  "tickets": [
+    {
+      "ticketId": "AS-2026-000101",
+      "category": "Garbage and Waste",
+      "subcategory": "Overflowing Bin",
+      "title": "Overflowing bin near Block-C cafeteria courtyard",
+      "description": "The green segregated bin is overflowing with food wrappers and drink cups. Needs immediate clearing.",
+      "locationRef": {
+        "buildingId": "block-c",
+        "floor": 0,
+        "roomId": "court-exterior",
+        "pin3D": {
+          "x": 72,
+          "y": 1,
+          "z": 25
+        }
+      },
+      "urgency": "high",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Nikhil Sharma",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-3",
+      "slaDueAt": "2026-10-14T17:58:20.775Z",
+      "media": [
+        {
+          "url": "https://images.unsplash.com/photo-1605600659908-0ef719419d41?w=600&auto=format&fit=crop&q=80",
+          "type": "image"
+        }
+      ],
+      "beforeMedia": [
+        {
+          "url": "https://images.unsplash.com/photo-1605600659908-0ef719419d41?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "afterMedia": [
+        {
+          "url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80",
+          "type": "image"
+        }
+      ],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T14:58:20.775Z",
+          "note": "Ticket submitted via Mobile Quick-Report"
+        },
+        {
+          "status": "assigned",
+          "byUserId": "usr-hod-1",
+          "at": "2026-10-14T15:28:20.775Z",
+          "note": "Smart-assigned to Suma Narayana (Housekeeping)"
+        },
+        {
+          "status": "in_progress",
+          "byUserId": "usr-admin-1",
+          "byUserName": "Dr. M. Ravishankar (Principal)",
+          "at": "2026-10-15T17:43:22.534Z",
+          "note": "Technician arrived on site"
+        },
+        {
+          "status": "resolved",
+          "byUserId": "usr-admin-1",
+          "byUserName": "Dr. M. Ravishankar (Principal)",
+          "at": "2026-10-15T17:43:24.523Z",
+          "note": "Work completed and tested by technician."
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000102",
+      "category": "Energy Waste",
+      "subcategory": "Ghost Load",
+      "title": "Lab 204 AC running with 0 occupants for 35 minutes",
+      "description": "Embedded Systems Lab 204 has 2.0T Split AC running at 18C while room is locked and empty. Energy Ghost alert triggered.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 2,
+        "roomId": "main-204",
+        "pin3D": {
+          "x": -45,
+          "y": 12,
+          "z": 42
+        }
+      },
+      "urgency": "high",
+      "status": "in_progress",
+      "reporterId": "usr-admin-1",
+      "reporterName": "Aura AI Auto-Detector",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-1",
+      "slaDueAt": "2026-10-14T16:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "system",
+          "at": "2026-10-14T15:18:20.775Z",
+          "note": "Energy Ghost correlation detected: Power 1950W, Occupancy 0"
+        },
+        {
+          "status": "in_progress",
+          "byUserId": "w-1",
+          "at": "2026-10-14T15:43:20.775Z",
+          "note": "Technician en route to verify and isolate relay"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000103",
+      "category": "Lifts and Elevators",
+      "subcategory": "Stuck Door Fault",
+      "title": "DSBA Central Lift door sensor intermittent jam",
+      "description": "Ground floor lift doors reopen repeatedly before closing. Causing delay for faculty and students.",
+      "locationRef": {
+        "buildingId": "dsba-block",
+        "floor": 0,
+        "roomId": "dsba-atrium",
+        "pin3D": {
+          "x": 0,
+          "y": 1,
+          "z": -48
+        }
+      },
+      "urgency": "high",
+      "status": "assigned",
+      "reporterId": "usr-staff-1",
+      "reporterName": "Prof. Ananya Rao",
+      "anonymous": false,
+      "assignedHodId": "usr-admin-1",
+      "assignedWorkerId": "w-4",
+      "slaDueAt": "2026-10-14T18:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-staff-1",
+          "at": "2026-10-14T14:51:40.775Z",
+          "note": "Reported by Faculty via Room QR"
+        },
+        {
+          "status": "assigned",
+          "byUserId": "usr-admin-1",
+          "at": "2026-10-14T15:08:20.775Z",
+          "note": "Assigned to Gopal Reddy (Lift Tech)"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000104",
+      "category": "Washroom and Hygiene",
+      "subcategory": "Tap Leakage",
+      "title": "Continuous tap drip in 1st Floor Boys Washroom",
+      "description": "Sensor faucet leaking continuously, wasting water and causing basin overflow risk.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "main-101-ext",
+        "pin3D": {
+          "x": -60,
+          "y": 6,
+          "z": 40
+        }
+      },
+      "urgency": "normal",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Nikhil Sharma",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-2",
+      "slaDueAt": "2026-10-14T14:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [
+        {
+          "url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "rating": 5,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T13:58:20.775Z",
+          "note": "Issue logged"
+        },
+        {
+          "status": "assigned",
+          "byUserId": "usr-hod-1",
+          "at": "2026-10-14T14:18:20.775Z",
+          "note": "Assigned to Basavaraj Patil"
+        },
+        {
+          "status": "resolved",
+          "byUserId": "w-2",
+          "at": "2026-10-14T15:38:20.775Z",
+          "note": "Washer replaced and pressure calibrated"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000105",
+      "category": "Electrical",
+      "subcategory": "Flickering Light",
+      "title": "Classroom 103 LED Tube flicker",
+      "description": "Row 3 tube light is strobing during lecture hours.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "main-103",
+        "pin3D": {
+          "x": -50,
+          "y": 6,
+          "z": 50
+        }
+      },
+      "urgency": "low",
+      "status": "new",
+      "reporterId": "usr-staff-1",
+      "reporterName": "Prof. Ananya Rao",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T15:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-staff-1",
+          "at": "2026-10-14T15:33:20.775Z",
+          "note": "Ticket created"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000106",
+      "category": "Energy Waste",
+      "subcategory": "Projector left on",
+      "title": "Auditorium laser projector left idling on blank screen #6",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsatm-main.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "dsatm-main-room-6",
+        "pin3D": {
+          "x": 2,
+          "y": 5,
+          "z": -24
+        }
+      },
+      "urgency": "normal",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-7",
+      "slaDueAt": "2026-10-14T18:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T09:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000107",
+      "category": "Lifts and Elevators",
+      "subcategory": "Rattling noise",
+      "title": "Boys Hostel Passenger Lift counterweight rattling #7",
+      "description": "Automated & crowd-reported campus maintenance item logged for boys-hostel-1.",
+      "locationRef": {
+        "buildingId": "boys-hostel-1",
+        "floor": 1,
+        "roomId": "boys-hostel-1-room-7",
+        "pin3D": {
+          "x": 9,
+          "y": 5,
+          "z": -13
+        }
+      },
+      "urgency": "normal",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-14T19:28:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T08:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000108",
+      "category": "Garbage and Waste",
+      "subcategory": "Litter in lawn",
+      "title": "Lawn litter after college cultural practice #8",
+      "description": "Automated & crowd-reported campus maintenance item logged for green-belt.",
+      "locationRef": {
+        "buildingId": "green-belt",
+        "floor": 1,
+        "roomId": "green-belt-room-8",
+        "pin3D": {
+          "x": 16,
+          "y": 5,
+          "z": -2
+        }
+      },
+      "urgency": "normal",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-9",
+      "slaDueAt": "2026-10-14T19:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T07:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000109",
+      "category": "Electrical",
+      "subcategory": "Switchboard loose",
+      "title": "Loose 3-phase switch plate in CNC workshop #9",
+      "description": "Automated & crowd-reported campus maintenance item logged for mech-civil.",
+      "locationRef": {
+        "buildingId": "mech-civil",
+        "floor": 1,
+        "roomId": "mech-civil-room-9",
+        "pin3D": {
+          "x": 23,
+          "y": 5,
+          "z": 9
+        }
+      },
+      "urgency": "high",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-14T20:28:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T06:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000110",
+      "category": "Plumbing and Water",
+      "subcategory": "Overhead tank sensor",
+      "title": "Overhead tank float sensor signal fault #10",
+      "description": "Automated & crowd-reported campus maintenance item logged for boys-hostel-1.",
+      "locationRef": {
+        "buildingId": "boys-hostel-1",
+        "floor": 1,
+        "roomId": "boys-hostel-1-room-10",
+        "pin3D": {
+          "x": 30,
+          "y": 5,
+          "z": 20
+        }
+      },
+      "urgency": "high",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": true,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-11",
+      "slaDueAt": "2026-10-14T20:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T05:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000111",
+      "category": "Safety and Security",
+      "subcategory": "Extinguisher pin missing",
+      "title": "2nd Floor Fire Extinguisher inspection seal cut #11",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsatm-main.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "dsatm-main-room-11",
+        "pin3D": {
+          "x": 37,
+          "y": 5,
+          "z": -29
+        }
+      },
+      "urgency": "high",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-14T21:28:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T04:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000112",
+      "category": "Cleanliness",
+      "subcategory": "Classroom floor spill",
+      "title": "Coffee spill in DSBA Hall 101 #12",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsba-block.",
+      "locationRef": {
+        "buildingId": "dsba-block",
+        "floor": 1,
+        "roomId": "dsba-block-room-12",
+        "pin3D": {
+          "x": -36,
+          "y": 5,
+          "z": -18
+        }
+      },
+      "urgency": "low",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-1",
+      "slaDueAt": "2026-10-14T21:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T03:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000113",
+      "category": "IT and Network",
+      "subcategory": "Wi-Fi AP offline",
+      "title": "C-Block 1st floor Aruba AP indicator flashing amber #13",
+      "description": "Automated & crowd-reported campus maintenance item logged for block-c.",
+      "locationRef": {
+        "buildingId": "block-c",
+        "floor": 1,
+        "roomId": "block-c-room-13",
+        "pin3D": {
+          "x": -29,
+          "y": 5,
+          "z": -7
+        }
+      },
+      "urgency": "normal",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-14T22:28:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T02:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000114",
+      "category": "Energy Waste",
+      "subcategory": "Projector left on",
+      "title": "Auditorium laser projector left idling on blank screen #14",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsatm-main.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "dsatm-main-room-14",
+        "pin3D": {
+          "x": -22,
+          "y": 5,
+          "z": 4
+        }
+      },
+      "urgency": "normal",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-3",
+      "slaDueAt": "2026-10-14T22:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T01:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000115",
+      "category": "Lifts and Elevators",
+      "subcategory": "Rattling noise",
+      "title": "Boys Hostel Passenger Lift counterweight rattling #15",
+      "description": "Automated & crowd-reported campus maintenance item logged for boys-hostel-1.",
+      "locationRef": {
+        "buildingId": "boys-hostel-1",
+        "floor": 1,
+        "roomId": "boys-hostel-1-room-15",
+        "pin3D": {
+          "x": -15,
+          "y": 5,
+          "z": 15
+        }
+      },
+      "urgency": "normal",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": true,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-14T23:28:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-14T00:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000116",
+      "category": "Garbage and Waste",
+      "subcategory": "Litter in lawn",
+      "title": "Lawn litter after college cultural practice #16",
+      "description": "Automated & crowd-reported campus maintenance item logged for green-belt.",
+      "locationRef": {
+        "buildingId": "green-belt",
+        "floor": 1,
+        "roomId": "green-belt-room-16",
+        "pin3D": {
+          "x": -8,
+          "y": 5,
+          "z": 26
+        }
+      },
+      "urgency": "normal",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-5",
+      "slaDueAt": "2026-10-14T23:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T23:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000117",
+      "category": "Electrical",
+      "subcategory": "Switchboard loose",
+      "title": "Loose 3-phase switch plate in CNC workshop #17",
+      "description": "Automated & crowd-reported campus maintenance item logged for mech-civil.",
+      "locationRef": {
+        "buildingId": "mech-civil",
+        "floor": 1,
+        "roomId": "mech-civil-room-17",
+        "pin3D": {
+          "x": -1,
+          "y": 5,
+          "z": -23
+        }
+      },
+      "urgency": "high",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T00:28:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T22:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000118",
+      "category": "Plumbing and Water",
+      "subcategory": "Overhead tank sensor",
+      "title": "Overhead tank float sensor signal fault #18",
+      "description": "Automated & crowd-reported campus maintenance item logged for boys-hostel-1.",
+      "locationRef": {
+        "buildingId": "boys-hostel-1",
+        "floor": 1,
+        "roomId": "boys-hostel-1-room-18",
+        "pin3D": {
+          "x": 6,
+          "y": 5,
+          "z": -12
+        }
+      },
+      "urgency": "high",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-7",
+      "slaDueAt": "2026-10-15T00:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T21:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000119",
+      "category": "Safety and Security",
+      "subcategory": "Extinguisher pin missing",
+      "title": "2nd Floor Fire Extinguisher inspection seal cut #19",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsatm-main.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "dsatm-main-room-19",
+        "pin3D": {
+          "x": 13,
+          "y": 5,
+          "z": -1
+        }
+      },
+      "urgency": "high",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T01:28:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T20:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000120",
+      "category": "Cleanliness",
+      "subcategory": "Classroom floor spill",
+      "title": "Coffee spill in DSBA Hall 101 #20",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsba-block.",
+      "locationRef": {
+        "buildingId": "dsba-block",
+        "floor": 1,
+        "roomId": "dsba-block-room-20",
+        "pin3D": {
+          "x": 20,
+          "y": 5,
+          "z": 10
+        }
+      },
+      "urgency": "low",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": true,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-9",
+      "slaDueAt": "2026-10-15T01:58:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T19:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000121",
+      "category": "IT and Network",
+      "subcategory": "Wi-Fi AP offline",
+      "title": "C-Block 1st floor Aruba AP indicator flashing amber #21",
+      "description": "Automated & crowd-reported campus maintenance item logged for block-c.",
+      "locationRef": {
+        "buildingId": "block-c",
+        "floor": 1,
+        "roomId": "block-c-room-21",
+        "pin3D": {
+          "x": 27,
+          "y": 5,
+          "z": 21
+        }
+      },
+      "urgency": "normal",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T02:28:20.775Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T18:58:20.775Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000122",
+      "category": "Energy Waste",
+      "subcategory": "Projector left on",
+      "title": "Auditorium laser projector left idling on blank screen #22",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsatm-main.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "dsatm-main-room-22",
+        "pin3D": {
+          "x": 34,
+          "y": 5,
+          "z": -28
+        }
+      },
+      "urgency": "normal",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-11",
+      "slaDueAt": "2026-10-15T02:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T17:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000123",
+      "category": "Lifts and Elevators",
+      "subcategory": "Rattling noise",
+      "title": "Boys Hostel Passenger Lift counterweight rattling #23",
+      "description": "Automated & crowd-reported campus maintenance item logged for boys-hostel-1.",
+      "locationRef": {
+        "buildingId": "boys-hostel-1",
+        "floor": 1,
+        "roomId": "boys-hostel-1-room-23",
+        "pin3D": {
+          "x": -39,
+          "y": 5,
+          "z": -17
+        }
+      },
+      "urgency": "normal",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T03:28:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T16:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000124",
+      "category": "Garbage and Waste",
+      "subcategory": "Litter in lawn",
+      "title": "Lawn litter after college cultural practice #24",
+      "description": "Automated & crowd-reported campus maintenance item logged for green-belt.",
+      "locationRef": {
+        "buildingId": "green-belt",
+        "floor": 1,
+        "roomId": "green-belt-room-24",
+        "pin3D": {
+          "x": -32,
+          "y": 5,
+          "z": -6
+        }
+      },
+      "urgency": "normal",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-1",
+      "slaDueAt": "2026-10-15T03:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T15:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000125",
+      "category": "Electrical",
+      "subcategory": "Switchboard loose",
+      "title": "Loose 3-phase switch plate in CNC workshop #25",
+      "description": "Automated & crowd-reported campus maintenance item logged for mech-civil.",
+      "locationRef": {
+        "buildingId": "mech-civil",
+        "floor": 1,
+        "roomId": "mech-civil-room-25",
+        "pin3D": {
+          "x": -25,
+          "y": 5,
+          "z": 5
+        }
+      },
+      "urgency": "high",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": true,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T04:28:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T14:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000126",
+      "category": "Plumbing and Water",
+      "subcategory": "Overhead tank sensor",
+      "title": "Overhead tank float sensor signal fault #26",
+      "description": "Automated & crowd-reported campus maintenance item logged for boys-hostel-1.",
+      "locationRef": {
+        "buildingId": "boys-hostel-1",
+        "floor": 1,
+        "roomId": "boys-hostel-1-room-26",
+        "pin3D": {
+          "x": -18,
+          "y": 5,
+          "z": 16
+        }
+      },
+      "urgency": "high",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-3",
+      "slaDueAt": "2026-10-15T04:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T13:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000127",
+      "category": "Safety and Security",
+      "subcategory": "Extinguisher pin missing",
+      "title": "2nd Floor Fire Extinguisher inspection seal cut #27",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsatm-main.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "dsatm-main-room-27",
+        "pin3D": {
+          "x": -11,
+          "y": 5,
+          "z": 27
+        }
+      },
+      "urgency": "high",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T05:28:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T12:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000128",
+      "category": "Cleanliness",
+      "subcategory": "Classroom floor spill",
+      "title": "Coffee spill in DSBA Hall 101 #28",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsba-block.",
+      "locationRef": {
+        "buildingId": "dsba-block",
+        "floor": 1,
+        "roomId": "dsba-block-room-28",
+        "pin3D": {
+          "x": -4,
+          "y": 5,
+          "z": -22
+        }
+      },
+      "urgency": "low",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-5",
+      "slaDueAt": "2026-10-15T05:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T11:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000129",
+      "category": "IT and Network",
+      "subcategory": "Wi-Fi AP offline",
+      "title": "C-Block 1st floor Aruba AP indicator flashing amber #29",
+      "description": "Automated & crowd-reported campus maintenance item logged for block-c.",
+      "locationRef": {
+        "buildingId": "block-c",
+        "floor": 1,
+        "roomId": "block-c-room-29",
+        "pin3D": {
+          "x": 3,
+          "y": 5,
+          "z": -11
+        }
+      },
+      "urgency": "normal",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T06:28:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T10:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000130",
+      "category": "Energy Waste",
+      "subcategory": "Projector left on",
+      "title": "Auditorium laser projector left idling on blank screen #30",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsatm-main.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "dsatm-main-room-30",
+        "pin3D": {
+          "x": 10,
+          "y": 5,
+          "z": 0
+        }
+      },
+      "urgency": "normal",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": true,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-7",
+      "slaDueAt": "2026-10-15T06:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T09:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000131",
+      "category": "Lifts and Elevators",
+      "subcategory": "Rattling noise",
+      "title": "Boys Hostel Passenger Lift counterweight rattling #31",
+      "description": "Automated & crowd-reported campus maintenance item logged for boys-hostel-1.",
+      "locationRef": {
+        "buildingId": "boys-hostel-1",
+        "floor": 1,
+        "roomId": "boys-hostel-1-room-31",
+        "pin3D": {
+          "x": 17,
+          "y": 5,
+          "z": 11
+        }
+      },
+      "urgency": "normal",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T07:28:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T08:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000132",
+      "category": "Garbage and Waste",
+      "subcategory": "Litter in lawn",
+      "title": "Lawn litter after college cultural practice #32",
+      "description": "Automated & crowd-reported campus maintenance item logged for green-belt.",
+      "locationRef": {
+        "buildingId": "green-belt",
+        "floor": 1,
+        "roomId": "green-belt-room-32",
+        "pin3D": {
+          "x": 24,
+          "y": 5,
+          "z": 22
+        }
+      },
+      "urgency": "normal",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-9",
+      "slaDueAt": "2026-10-15T07:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T07:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000133",
+      "category": "Electrical",
+      "subcategory": "Switchboard loose",
+      "title": "Loose 3-phase switch plate in CNC workshop #33",
+      "description": "Automated & crowd-reported campus maintenance item logged for mech-civil.",
+      "locationRef": {
+        "buildingId": "mech-civil",
+        "floor": 1,
+        "roomId": "mech-civil-room-33",
+        "pin3D": {
+          "x": 31,
+          "y": 5,
+          "z": -27
+        }
+      },
+      "urgency": "high",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T08:28:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T06:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000134",
+      "category": "Plumbing and Water",
+      "subcategory": "Overhead tank sensor",
+      "title": "Overhead tank float sensor signal fault #34",
+      "description": "Automated & crowd-reported campus maintenance item logged for boys-hostel-1.",
+      "locationRef": {
+        "buildingId": "boys-hostel-1",
+        "floor": 1,
+        "roomId": "boys-hostel-1-room-34",
+        "pin3D": {
+          "x": 38,
+          "y": 5,
+          "z": -16
+        }
+      },
+      "urgency": "high",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-11",
+      "slaDueAt": "2026-10-15T08:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T05:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000135",
+      "category": "Safety and Security",
+      "subcategory": "Extinguisher pin missing",
+      "title": "2nd Floor Fire Extinguisher inspection seal cut #35",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsatm-main.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "dsatm-main-room-35",
+        "pin3D": {
+          "x": -35,
+          "y": 5,
+          "z": -5
+        }
+      },
+      "urgency": "high",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": true,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T09:28:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T04:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000136",
+      "category": "Cleanliness",
+      "subcategory": "Classroom floor spill",
+      "title": "Coffee spill in DSBA Hall 101 #36",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsba-block.",
+      "locationRef": {
+        "buildingId": "dsba-block",
+        "floor": 1,
+        "roomId": "dsba-block-room-36",
+        "pin3D": {
+          "x": -28,
+          "y": 5,
+          "z": 6
+        }
+      },
+      "urgency": "low",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-1",
+      "slaDueAt": "2026-10-15T09:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T03:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000137",
+      "category": "IT and Network",
+      "subcategory": "Wi-Fi AP offline",
+      "title": "C-Block 1st floor Aruba AP indicator flashing amber #37",
+      "description": "Automated & crowd-reported campus maintenance item logged for block-c.",
+      "locationRef": {
+        "buildingId": "block-c",
+        "floor": 1,
+        "roomId": "block-c-room-37",
+        "pin3D": {
+          "x": -21,
+          "y": 5,
+          "z": 17
+        }
+      },
+      "urgency": "normal",
+      "status": "new",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T10:28:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T02:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000138",
+      "category": "Energy Waste",
+      "subcategory": "Projector left on",
+      "title": "Auditorium laser projector left idling on blank screen #38",
+      "description": "Automated & crowd-reported campus maintenance item logged for dsatm-main.",
+      "locationRef": {
+        "buildingId": "dsatm-main",
+        "floor": 1,
+        "roomId": "dsatm-main-room-38",
+        "pin3D": {
+          "x": -14,
+          "y": 5,
+          "z": 28
+        }
+      },
+      "urgency": "normal",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-3",
+      "slaDueAt": "2026-10-15T10:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T01:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000139",
+      "category": "Lifts and Elevators",
+      "subcategory": "Rattling noise",
+      "title": "Boys Hostel Passenger Lift counterweight rattling #39",
+      "description": "Automated & crowd-reported campus maintenance item logged for boys-hostel-1.",
+      "locationRef": {
+        "buildingId": "boys-hostel-1",
+        "floor": 1,
+        "roomId": "boys-hostel-1-room-39",
+        "pin3D": {
+          "x": -7,
+          "y": 5,
+          "z": -21
+        }
+      },
+      "urgency": "normal",
+      "status": "resolved",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": false,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": null,
+      "slaDueAt": "2026-10-15T11:28:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": 4,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-13T00:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    },
+    {
+      "ticketId": "AS-2026-000140",
+      "category": "Garbage and Waste",
+      "subcategory": "Litter in lawn",
+      "title": "Lawn litter after college cultural practice #40",
+      "description": "Automated & crowd-reported campus maintenance item logged for green-belt.",
+      "locationRef": {
+        "buildingId": "green-belt",
+        "floor": 1,
+        "roomId": "green-belt-room-40",
+        "pin3D": {
+          "x": 0,
+          "y": 5,
+          "z": -10
+        }
+      },
+      "urgency": "normal",
+      "status": "in_progress",
+      "reporterId": "usr-student-1",
+      "reporterName": "Campus Reporter",
+      "anonymous": true,
+      "assignedHodId": "usr-hod-1",
+      "assignedWorkerId": "w-5",
+      "slaDueAt": "2026-10-15T11:58:20.776Z",
+      "media": [],
+      "beforeMedia": [],
+      "afterMedia": [],
+      "rating": null,
+      "timeline": [
+        {
+          "status": "new",
+          "byUserId": "usr-student-1",
+          "at": "2026-10-12T23:58:20.776Z",
+          "note": "Logged"
+        }
+      ]
+    }
+  ],
+  "workers": [
+    {
+      "id": "w-1",
+      "name": "Manjunath Gowda",
+      "skill": "Electrician",
+      "phone": "+91 98450 11201",
+      "shift": "Morning",
+      "workload": 2,
+      "availability": "available",
+      "rating": 4.8
+    },
+    {
+      "id": "w-2",
+      "name": "Basavaraj Patil",
+      "skill": "Plumber",
+      "phone": "+91 98450 11202",
+      "shift": "Morning",
+      "workload": 1,
+      "availability": "available",
+      "rating": 4.9
+    },
+    {
+      "id": "w-3",
+      "name": "Suma Narayana",
+      "skill": "Housekeeping",
+      "phone": "+91 98450 11203",
+      "shift": "Morning",
+      "workload": 2,
+      "availability": "busy",
+      "rating": 4.7
+    },
+    {
+      "id": "w-4",
+      "name": "Gopal Reddy",
+      "skill": "Lift Technician",
+      "phone": "+91 98450 11204",
+      "shift": "General",
+      "workload": 1,
+      "availability": "available",
+      "rating": 4.9
+    },
+    {
+      "id": "w-5",
+      "name": "Lakshmamma R.",
+      "skill": "Housekeeping",
+      "phone": "+91 98450 11205",
+      "shift": "Morning",
+      "workload": 1,
+      "availability": "available",
+      "rating": 4.6
+    },
+    {
+      "id": "w-6",
+      "name": "Shankar Murthy",
+      "skill": "HVAC Specialist",
+      "phone": "+91 98450 11206",
+      "shift": "General",
+      "workload": 2,
+      "availability": "available",
+      "rating": 4.8
+    },
+    {
+      "id": "w-7",
+      "name": "Krishnappa M.",
+      "skill": "Gardener & Waste",
+      "phone": "+91 98450 11207",
+      "shift": "Morning",
+      "workload": 0,
+      "availability": "available",
+      "rating": 4.5
+    },
+    {
+      "id": "w-8",
+      "name": "Praveen Naik",
+      "skill": "Electrician",
+      "phone": "+91 98450 11208",
+      "shift": "Evening",
+      "workload": 1,
+      "availability": "available",
+      "rating": 4.7
+    },
+    {
+      "id": "w-9",
+      "name": "Venkatesh Rao",
+      "skill": "Carpenter & Civil",
+      "phone": "+91 98450 11209",
+      "shift": "Morning",
+      "workload": 2,
+      "availability": "busy",
+      "rating": 4.4
+    },
+    {
+      "id": "w-10",
+      "name": "Renuka Devi",
+      "skill": "Housekeeping",
+      "phone": "+91 98450 11210",
+      "shift": "Evening",
+      "workload": 1,
+      "availability": "available",
+      "rating": 4.8
+    },
+    {
+      "id": "w-11",
+      "name": "Anand Kumar",
+      "skill": "IT & AV Tech",
+      "phone": "+91 98450 11211",
+      "shift": "General",
+      "workload": 3,
+      "availability": "busy",
+      "rating": 4.9
+    },
+    {
+      "id": "w-12",
+      "name": "Raju Shetty",
+      "skill": "Security Supervisor",
+      "phone": "+91 98450 11212",
+      "shift": "Night",
+      "workload": 0,
+      "availability": "available",
+      "rating": 4.9
+    }
+  ],
+  "lifts": [
+    {
+      "id": "lift-main-1",
+      "buildingId": "dsatm-main",
+      "name": "Academic Elevator A",
+      "capacityKg": 680,
+      "currentFloor": 1,
+      "status": "running",
+      "faultCode": "NORMAL",
+      "energyKwh": 14.8,
+      "tripsToday": 84,
+      "emergencyTrapped": false
+    },
+    {
+      "id": "lift-main-2",
+      "buildingId": "dsatm-main",
+      "name": "Academic Elevator B",
+      "capacityKg": 680,
+      "currentFloor": 3,
+      "status": "idle",
+      "faultCode": "NORMAL",
+      "energyKwh": 12.3,
+      "tripsToday": 71,
+      "emergencyTrapped": false
+    },
+    {
+      "id": "lift-dsba-1",
+      "buildingId": "dsba-block",
+      "name": "DSBA Central Lift",
+      "capacityKg": 544,
+      "currentFloor": 0,
+      "status": "idle",
+      "faultCode": "NORMAL",
+      "energyKwh": 8.4,
+      "tripsToday": 42,
+      "emergencyTrapped": false
+    },
+    {
+      "id": "lift-mech-1",
+      "buildingId": "mech-civil",
+      "name": "Engineering Bay Freight Lift",
+      "capacityKg": 1000,
+      "currentFloor": 0,
+      "status": "idle",
+      "faultCode": "NORMAL",
+      "energyKwh": 9.1,
+      "tripsToday": 35,
+      "emergencyTrapped": false
+    },
+    {
+      "id": "lift-hostel-1",
+      "buildingId": "boys-hostel-1",
+      "name": "Boys Hostel Lift A",
+      "capacityKg": 544,
+      "currentFloor": 4,
+      "status": "running",
+      "faultCode": "NORMAL",
+      "energyKwh": 16.2,
+      "tripsToday": 112,
+      "emergencyTrapped": false
+    },
+    {
+      "id": "lift-hostel-2",
+      "buildingId": "boys-hostel-1",
+      "name": "Boys Hostel Lift B",
+      "capacityKg": 544,
+      "currentFloor": 2,
+      "status": "idle",
+      "faultCode": "NORMAL",
+      "energyKwh": 13.5,
+      "tripsToday": 98,
+      "emergencyTrapped": false
+    }
+  ],
+  "bins": [
+    {
+      "id": "bin-001",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 1",
+      "type": "dry",
+      "fillPct": 87,
+      "lastEmptied": "2026-10-14T15:58:20.774Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-002",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 1",
+      "type": "wet",
+      "fillPct": 44,
+      "lastEmptied": "2026-10-14T14:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-003",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 1",
+      "type": "plastic",
+      "fillPct": 35,
+      "lastEmptied": "2026-10-14T13:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-004",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 1",
+      "type": "e-waste",
+      "fillPct": 70,
+      "lastEmptied": "2026-10-14T12:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-005",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 1",
+      "type": "dry",
+      "fillPct": 35,
+      "lastEmptied": "2026-10-14T11:58:20.774Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-006",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 1",
+      "type": "wet",
+      "fillPct": 70,
+      "lastEmptied": "2026-10-14T10:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-007",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 2",
+      "type": "plastic",
+      "fillPct": 33,
+      "lastEmptied": "2026-10-14T09:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-008",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 2",
+      "type": "e-waste",
+      "fillPct": 31,
+      "lastEmptied": "2026-10-14T08:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-009",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 2",
+      "type": "dry",
+      "fillPct": 92,
+      "lastEmptied": "2026-10-14T07:58:20.774Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-010",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 2",
+      "type": "wet",
+      "fillPct": 87,
+      "lastEmptied": "2026-10-14T06:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-011",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 2",
+      "type": "plastic",
+      "fillPct": 34,
+      "lastEmptied": "2026-10-14T05:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-012",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 2",
+      "type": "e-waste",
+      "fillPct": 68,
+      "lastEmptied": "2026-10-14T04:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-013",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 3",
+      "type": "dry",
+      "fillPct": 89,
+      "lastEmptied": "2026-10-14T03:58:20.774Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-014",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 3",
+      "type": "wet",
+      "fillPct": 52,
+      "lastEmptied": "2026-10-14T02:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-015",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 3",
+      "type": "plastic",
+      "fillPct": 94,
+      "lastEmptied": "2026-10-14T01:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-016",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 3",
+      "type": "e-waste",
+      "fillPct": 68,
+      "lastEmptied": "2026-10-14T00:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-017",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 3",
+      "type": "dry",
+      "fillPct": 67,
+      "lastEmptied": "2026-10-13T23:58:20.774Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-018",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 3",
+      "type": "wet",
+      "fillPct": 74,
+      "lastEmptied": "2026-10-13T22:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-019",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 4",
+      "type": "plastic",
+      "fillPct": 77,
+      "lastEmptied": "2026-10-13T21:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-020",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 4",
+      "type": "e-waste",
+      "fillPct": 40,
+      "lastEmptied": "2026-10-13T20:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-021",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 4",
+      "type": "dry",
+      "fillPct": 59,
+      "lastEmptied": "2026-10-13T19:58:20.774Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-022",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 4",
+      "type": "wet",
+      "fillPct": 46,
+      "lastEmptied": "2026-10-13T18:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-023",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 4",
+      "type": "plastic",
+      "fillPct": 77,
+      "lastEmptied": "2026-10-13T17:58:20.774Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-024",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 4",
+      "type": "e-waste",
+      "fillPct": 34,
+      "lastEmptied": "2026-10-13T16:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-025",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 5",
+      "type": "dry",
+      "fillPct": 71,
+      "lastEmptied": "2026-10-13T15:58:20.775Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-026",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 5",
+      "type": "wet",
+      "fillPct": 27,
+      "lastEmptied": "2026-10-13T14:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-027",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 5",
+      "type": "plastic",
+      "fillPct": 27,
+      "lastEmptied": "2026-10-13T13:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-028",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 5",
+      "type": "e-waste",
+      "fillPct": 86,
+      "lastEmptied": "2026-10-13T12:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-029",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 5",
+      "type": "dry",
+      "fillPct": 52,
+      "lastEmptied": "2026-10-13T11:58:20.775Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-030",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 5",
+      "type": "wet",
+      "fillPct": 46,
+      "lastEmptied": "2026-10-13T10:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-031",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 6",
+      "type": "plastic",
+      "fillPct": 82,
+      "lastEmptied": "2026-10-13T09:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-032",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 6",
+      "type": "e-waste",
+      "fillPct": 84,
+      "lastEmptied": "2026-10-13T08:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-033",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 6",
+      "type": "dry",
+      "fillPct": 66,
+      "lastEmptied": "2026-10-13T07:58:20.775Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-034",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 6",
+      "type": "wet",
+      "fillPct": 55,
+      "lastEmptied": "2026-10-13T06:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-035",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 6",
+      "type": "plastic",
+      "fillPct": 86,
+      "lastEmptied": "2026-10-13T05:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-036",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 6",
+      "type": "e-waste",
+      "fillPct": 75,
+      "lastEmptied": "2026-10-13T04:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-037",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 7",
+      "type": "dry",
+      "fillPct": 48,
+      "lastEmptied": "2026-10-13T03:58:20.775Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-038",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 7",
+      "type": "wet",
+      "fillPct": 41,
+      "lastEmptied": "2026-10-13T02:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-039",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 7",
+      "type": "plastic",
+      "fillPct": 32,
+      "lastEmptied": "2026-10-13T01:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-040",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 7",
+      "type": "e-waste",
+      "fillPct": 31,
+      "lastEmptied": "2026-10-13T00:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-041",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 7",
+      "type": "dry",
+      "fillPct": 24,
+      "lastEmptied": "2026-10-12T23:58:20.775Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-042",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 7",
+      "type": "wet",
+      "fillPct": 48,
+      "lastEmptied": "2026-10-12T22:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-043",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 8",
+      "type": "plastic",
+      "fillPct": 21,
+      "lastEmptied": "2026-10-12T21:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-044",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 8",
+      "type": "e-waste",
+      "fillPct": 27,
+      "lastEmptied": "2026-10-12T20:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-045",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 8",
+      "type": "dry",
+      "fillPct": 56,
+      "lastEmptied": "2026-10-12T19:58:20.775Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-046",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 8",
+      "type": "wet",
+      "fillPct": 25,
+      "lastEmptied": "2026-10-12T18:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-047",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 8",
+      "type": "plastic",
+      "fillPct": 64,
+      "lastEmptied": "2026-10-12T17:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-048",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 8",
+      "type": "e-waste",
+      "fillPct": 94,
+      "lastEmptied": "2026-10-12T16:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-049",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 9",
+      "type": "dry",
+      "fillPct": 92,
+      "lastEmptied": "2026-10-12T15:58:20.775Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-050",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 9",
+      "type": "wet",
+      "fillPct": 61,
+      "lastEmptied": "2026-10-12T14:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-051",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 9",
+      "type": "plastic",
+      "fillPct": 30,
+      "lastEmptied": "2026-10-12T13:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-052",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 9",
+      "type": "e-waste",
+      "fillPct": 23,
+      "lastEmptied": "2026-10-12T12:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-053",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 9",
+      "type": "dry",
+      "fillPct": 83,
+      "lastEmptied": "2026-10-12T11:58:20.775Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-054",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 9",
+      "type": "wet",
+      "fillPct": 56,
+      "lastEmptied": "2026-10-12T10:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-055",
+      "buildingId": "dsatm-main",
+      "locationName": "DSATM Main - Zone 10",
+      "type": "plastic",
+      "fillPct": 47,
+      "lastEmptied": "2026-10-12T09:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-056",
+      "buildingId": "dsba-block",
+      "locationName": "DSBA Block - Zone 10",
+      "type": "e-waste",
+      "fillPct": 61,
+      "lastEmptied": "2026-10-12T08:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-057",
+      "buildingId": "mech-civil",
+      "locationName": "Mech-Civil - Zone 10",
+      "type": "dry",
+      "fillPct": 54,
+      "lastEmptied": "2026-10-12T07:58:20.775Z",
+      "capacityLiters": 120
+    },
+    {
+      "id": "bin-058",
+      "buildingId": "block-c",
+      "locationName": "Block-C - Zone 10",
+      "type": "wet",
+      "fillPct": 27,
+      "lastEmptied": "2026-10-12T06:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-059",
+      "buildingId": "boys-hostel-1",
+      "locationName": "Hostel 1 - Zone 10",
+      "type": "plastic",
+      "fillPct": 83,
+      "lastEmptied": "2026-10-12T05:58:20.775Z",
+      "capacityLiters": 80
+    },
+    {
+      "id": "bin-060",
+      "buildingId": "green-belt",
+      "locationName": "Green Belt - Zone 10",
+      "type": "e-waste",
+      "fillPct": 83,
+      "lastEmptied": "2026-10-12T04:58:20.775Z",
+      "capacityLiters": 80
+    }
+  ],
+  "feedback": [
+    {
+      "id": "fb-1",
+      "userId": "usr-student-1",
+      "userName": "Nikhil Sharma",
+      "type": "Feature request",
+      "rating": 5,
+      "sentiment": "positive",
+      "topic": "Carbon Passport",
+      "text": "Loving the real-time Carbon Passport! Could we add college bus route tracking to log Scope 3 commute savings?",
+      "status": "Planned",
+      "adminReply": "Great idea! We are piloting GPS tracking on 6 Kanakapura road college buses in phase 2.",
+      "department": "Computer Science and Engineering (AIML)",
+      "createdAt": "2026-10-13T15:58:20.776Z"
+    },
+    {
+      "id": "fb-2",
+      "userId": "usr-staff-1",
+      "userName": "Prof. Ananya Rao",
+      "type": "Suggestion for the college",
+      "rating": 4,
+      "sentiment": "positive",
+      "topic": "Solar Rooftop",
+      "text": "The solar generation overlay in the 3D twin is impressive. Faculty suggest scheduling lab batches during peak solar hours (11:00 - 14:00).",
+      "status": "Reviewing",
+      "adminReply": "Implemented in the Auto-Optimizer timetable recommendation engine!",
+      "department": "Computer Science and Engineering (AIML)",
+      "createdAt": "2026-10-12T15:58:20.776Z"
+    },
+    {
+      "id": "fb-3",
+      "userId": "usr-worker-1",
+      "userName": "Manjunath Gowda",
+      "type": "Bug in the app",
+      "rating": 4,
+      "sentiment": "neutral",
+      "topic": "Worker Mobile View",
+      "text": "After-photo upload should support offline mode when underground in the transformer yard.",
+      "status": "Done",
+      "adminReply": "Resolved: PWA offline caching enabled for all worker uploads.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-11T18:31:40.776Z"
+    },
+    {
+      "id": "fb-4",
+      "userId": "usr-student-1",
+      "userName": "Student Community #4",
+      "type": "Complaint about a service",
+      "rating": 4,
+      "sentiment": "negative",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #4.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-12T15:58:20.776Z"
+    },
+    {
+      "id": "fb-5",
+      "userId": "usr-student-1",
+      "userName": "Student Community #5",
+      "type": "Suggestion for the college",
+      "rating": 5,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #5.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-12T03:58:20.776Z"
+    },
+    {
+      "id": "fb-6",
+      "userId": "usr-student-1",
+      "userName": "Student Community #6",
+      "type": "Praise",
+      "rating": 3,
+      "sentiment": "positive",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #6.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-11T15:58:20.776Z"
+    },
+    {
+      "id": "fb-7",
+      "userId": "usr-student-1",
+      "userName": "Student Community #7",
+      "type": "Suggestion for the college",
+      "rating": 4,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #7.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-11T03:58:20.776Z"
+    },
+    {
+      "id": "fb-8",
+      "userId": "usr-student-1",
+      "userName": "Student Community #8",
+      "type": "Complaint about a service",
+      "rating": 5,
+      "sentiment": "negative",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #8.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-10T15:58:20.776Z"
+    },
+    {
+      "id": "fb-9",
+      "userId": "usr-student-1",
+      "userName": "Student Community #9",
+      "type": "Praise",
+      "rating": 3,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #9.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-10T03:58:20.776Z"
+    },
+    {
+      "id": "fb-10",
+      "userId": "usr-student-1",
+      "userName": "Student Community #10",
+      "type": "Suggestion for the college",
+      "rating": 4,
+      "sentiment": "positive",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #10.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-09T15:58:20.776Z"
+    },
+    {
+      "id": "fb-11",
+      "userId": "usr-student-1",
+      "userName": "Student Community #11",
+      "type": "Suggestion for the college",
+      "rating": 5,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #11.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-09T03:58:20.776Z"
+    },
+    {
+      "id": "fb-12",
+      "userId": "usr-student-1",
+      "userName": "Student Community #12",
+      "type": "Complaint about a service",
+      "rating": 3,
+      "sentiment": "negative",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #12.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-08T15:58:20.776Z"
+    },
+    {
+      "id": "fb-13",
+      "userId": "usr-student-1",
+      "userName": "Student Community #13",
+      "type": "Suggestion for the college",
+      "rating": 4,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #13.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-08T03:58:20.776Z"
+    },
+    {
+      "id": "fb-14",
+      "userId": "usr-student-1",
+      "userName": "Student Community #14",
+      "type": "Suggestion for the college",
+      "rating": 5,
+      "sentiment": "positive",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #14.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-07T15:58:20.776Z"
+    },
+    {
+      "id": "fb-15",
+      "userId": "usr-student-1",
+      "userName": "Student Community #15",
+      "type": "Praise",
+      "rating": 3,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #15.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-07T03:58:20.776Z"
+    },
+    {
+      "id": "fb-16",
+      "userId": "usr-student-1",
+      "userName": "Student Community #16",
+      "type": "Complaint about a service",
+      "rating": 4,
+      "sentiment": "negative",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #16.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-06T15:58:20.776Z"
+    },
+    {
+      "id": "fb-17",
+      "userId": "usr-student-1",
+      "userName": "Student Community #17",
+      "type": "Suggestion for the college",
+      "rating": 5,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #17.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-06T03:58:20.776Z"
+    },
+    {
+      "id": "fb-18",
+      "userId": "usr-student-1",
+      "userName": "Student Community #18",
+      "type": "Praise",
+      "rating": 3,
+      "sentiment": "positive",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #18.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-05T15:58:20.776Z"
+    },
+    {
+      "id": "fb-19",
+      "userId": "usr-student-1",
+      "userName": "Student Community #19",
+      "type": "Suggestion for the college",
+      "rating": 4,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #19.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-05T03:58:20.776Z"
+    },
+    {
+      "id": "fb-20",
+      "userId": "usr-student-1",
+      "userName": "Student Community #20",
+      "type": "Complaint about a service",
+      "rating": 5,
+      "sentiment": "negative",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #20.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-04T15:58:20.776Z"
+    },
+    {
+      "id": "fb-21",
+      "userId": "usr-student-1",
+      "userName": "Student Community #21",
+      "type": "Praise",
+      "rating": 3,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #21.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-04T03:58:20.776Z"
+    },
+    {
+      "id": "fb-22",
+      "userId": "usr-student-1",
+      "userName": "Student Community #22",
+      "type": "Suggestion for the college",
+      "rating": 4,
+      "sentiment": "positive",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #22.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-03T15:58:20.776Z"
+    },
+    {
+      "id": "fb-23",
+      "userId": "usr-student-1",
+      "userName": "Student Community #23",
+      "type": "Suggestion for the college",
+      "rating": 5,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #23.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-03T03:58:20.776Z"
+    },
+    {
+      "id": "fb-24",
+      "userId": "usr-student-1",
+      "userName": "Student Community #24",
+      "type": "Complaint about a service",
+      "rating": 3,
+      "sentiment": "negative",
+      "topic": "Energy Efficiency",
+      "text": "Feedback report regarding campus sustainability and facility management item #24.",
+      "status": "Reviewing",
+      "adminReply": "Thank you for your constructive contribution to DSATM green goals.",
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-02T15:58:20.776Z"
+    },
+    {
+      "id": "fb-25",
+      "userId": "usr-student-1",
+      "userName": "Student Community #25",
+      "type": "Suggestion for the college",
+      "rating": 4,
+      "sentiment": "positive",
+      "topic": "Hostel Facilities",
+      "text": "Feedback report regarding campus sustainability and facility management item #25.",
+      "status": "New",
+      "adminReply": null,
+      "department": "Campus Facilities & Maintenance",
+      "createdAt": "2026-10-02T03:58:20.776Z"
+    }
+  ],
+  "settings": [
+    {
+      "key": "tariff_per_kwh_inr",
+      "name": "Grid Tariff Rate (BESCOM HT Slab)",
+      "category": "Financial & Tariffs",
+      "unit": "Rs/kWh",
+      "scopeAllowed": [
+        "global"
+      ],
+      "defaultValue": 8.25,
+      "globalValue": 8.25,
+      "deptValues": {},
+      "personalValues": {},
+      "min": 4,
+      "max": 18,
+      "lockedBy": "admin",
+      "description": "Assumed Bangalore Electricity Supply Company (BESCOM) rate for HT-2 commercial educational institutions."
+    },
+    {
+      "key": "grid_emission_factor",
+      "name": "India Grid Emission Factor",
+      "category": "Carbon & ESG",
+      "unit": "kg CO2e/kWh",
+      "scopeAllowed": [
+        "global"
+      ],
+      "defaultValue": 0.71,
+      "globalValue": 0.71,
+      "deptValues": {},
+      "personalValues": {},
+      "min": 0.3,
+      "max": 1.2,
+      "lockedBy": "admin",
+      "description": "CEA CO2 baseline database for Indian national grid electricity average."
+    },
+    {
+      "key": "ac_setpoint_cooling",
+      "name": "Standard AC Setpoint Temperature",
+      "category": "Thermal & Comfort",
+      "unit": "°C",
+      "scopeAllowed": [
+        "global",
+        "department"
+      ],
+      "defaultValue": 24,
+      "globalValue": 24,
+      "deptValues": {
+        "Computer Science and Engineering (AIML)": 23,
+        "Dayananda Sagar Business Academy (DSBA)": 24,
+        "Mechanical Engineering": 25
+      },
+      "personalValues": {},
+      "min": 22,
+      "max": 27,
+      "lockedBy": null,
+      "description": "BEE recommended thermostat sweet spot for energy savings and occupant thermal comfort."
+    },
+    {
+      "key": "idle_timeout_minutes",
+      "name": "Vacant Room Auto-Off Delay",
+      "category": "Auto-Optimizer",
+      "unit": "Minutes",
+      "scopeAllowed": [
+        "global",
+        "department"
+      ],
+      "defaultValue": 15,
+      "globalValue": 15,
+      "deptValues": {
+        "Computer Science and Engineering (AIML)": 10
+      },
+      "personalValues": {},
+      "min": 5,
+      "max": 60,
+      "lockedBy": null,
+      "description": "Minutes of zero occupancy detected via Computer Vision or IoT sensors before auto-switching non-critical loads."
+    },
+    {
+      "key": "optimizer_aggressiveness",
+      "name": "Auto-Optimizer Control Mode",
+      "category": "Auto-Optimizer",
+      "unit": "Profile",
+      "scopeAllowed": [
+        "global",
+        "department"
+      ],
+      "defaultValue": "Balanced",
+      "globalValue": "Balanced",
+      "deptValues": {},
+      "personalValues": {},
+      "options": [
+        "Gentle",
+        "Balanced",
+        "Aggressive"
+      ],
+      "lockedBy": null,
+      "description": "Determines threshold sensitivity for load shedding, pre-cooling schedules and peak shaving."
+    },
+    {
+      "key": "dynamic_island_position",
+      "name": "Dynamic Island Anchor Position",
+      "category": "User Interface",
+      "unit": "Anchor",
+      "scopeAllowed": [
+        "personal"
+      ],
+      "defaultValue": "top-center",
+      "globalValue": "top-center",
+      "deptValues": {},
+      "personalValues": {},
+      "options": [
+        "top-center",
+        "top-left",
+        "top-right",
+        "bottom-center",
+        "bottom-left",
+        "bottom-right",
+        "free"
+      ],
+      "lockedBy": null,
+      "description": "Physical screen location of the floating Dynamic Island HUD."
+    }
+  ],
+  "auditLogs": [],
+  "controlActions": [
+    {
+      "id": "act-eco-1792130383375",
+      "userId": "usr-hod-1",
+      "userName": "Dr. Sandhya V. (HOD AIML)",
+      "userRole": "hod",
+      "action": "Activated Campus Eco Mode",
+      "scope": "campus",
+      "details": {
+        "switchedOffCount": 16,
+        "wattsSaved": 5742
+      },
+      "timestamp": "2026-10-16T05:59:43.375Z",
+      "canUndoUntil": "2026-10-16T06:00:43.375Z"
+    }
+  ],
+  "carbonBudgets": [
+    {
+      "scopeId": "campus-global",
+      "scopeName": "DSATM Campus Total",
+      "period": "October 2026",
+      "capKg": 120000,
+      "usedKg": 84210,
+      "warningThresholdPct": 70
+    },
+    {
+      "scopeId": "dept-aiml",
+      "scopeName": "CSE (AIML) Department",
+      "period": "October 2026",
+      "capKg": 28000,
+      "usedKg": 19450,
+      "warningThresholdPct": 70
+    },
+    {
+      "scopeId": "dept-dsba",
+      "scopeName": "DSBA Block",
+      "period": "October 2026",
+      "capKg": 18000,
+      "usedKg": 11200,
+      "warningThresholdPct": 70
+    },
+    {
+      "scopeId": "dept-mech",
+      "scopeName": "Mechanical Engineering",
+      "period": "October 2026",
+      "capKg": 22000,
+      "usedKg": 16800,
+      "warningThresholdPct": 70
+    },
+    {
+      "scopeId": "hostel-boys1",
+      "scopeName": "Boys Hostel 1",
+      "period": "October 2026",
+      "capKg": 35000,
+      "usedKg": 27900,
+      "warningThresholdPct": 70
+    }
+  ],
+  "carbonPassports": []
+}

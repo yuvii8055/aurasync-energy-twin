@@ -1,0 +1,34 @@
+{
+  "institutionName": "Dayananda Sagar Academy of Technology and Management (DSATM)",
+  "parentGroup": "Dayananda Sagar Institutions",
+  "location": "Udayapura, Kanakapura Main Road, Bengaluru, Karnataka, India",
+  "pincode": "560082",
+  "developedBy": "O(1) Outlaws: AIML Engineers of DSATM",
+  "gridEmissionFactor": 0.71,
+  "defaultTariffPerKwh": 8.25,
+  "sanctionedDemandKva": 750,
+  "assumedLabelNote": "Assumed. Edit in Settings with your actual BESCOM bill.",
+  "statements": [
+    "Dayananda Sagar Institutions: a Bengaluru-based education group offering engineering, management, medical and more.",
+    "From a campus of thousands to a greener tomorrow: every unit saved counts.",
+    "A smart campus is a sustainable campus.",
+    "Built by DSATM students, for DSATM and every campus that follows.",
+    "Located at Udayapura, Kanakapura Main Road, DSATM fosters premier engineering excellence.",
+    "Pioneering digital twin technologies for sustainable educational infrastructure in Karnataka.",
+    "Real-time energy telemetry and computer vision uniting student comfort with carbon efficiency.",
+    "Fostering next-gen AIML engineers tackling urban sustainability and microgrid resilience.",
+    "Transforming institutional carbon accounting into verifiable, actionable campus stewardship.",
+    "Empowering faculty, staff, and students with transparent, role-based environmental governance."
+  ],
+  "departments": [
+    "Computer Science and Engineering (AIML)",
+    "Computer Science and Engineering",
+    "Information Science and Engineering",
+    "Mechanical Engineering",
+    "Civil Engineering",
+    "Electronics and Communication Engineering",
+    "Electrical and Electronics Engineering",
+    "Dayananda Sagar Business Academy (DSBA)",
+    "Campus Facilities & Maintenance"
+  ]
+}

@@ -1,0 +1,553 @@
+{
+  "campus": {
+    "name": "Dayananda Sagar Academy of Technology and Management",
+    "shortName": "DSATM",
+    "location": "Udayapura, Kanakapura Main Road, Bengaluru, Karnataka, India",
+    "coordinates": { "lat": 12.8254, "lng": 77.5181 },
+    "gridBounds": { "width": 320, "depth": 260 },
+    "elevation": 890,
+    "roads": [
+      {
+        "id": "ring-road-outer",
+        "name": "Campus Perimeter Ring Road",
+        "type": "ring",
+        "width": 10,
+        "path": [
+          { "x": -130, "z": -100 },
+          { "x": 130, "z": -100 },
+          { "x": 130, "z": 100 },
+          { "x": -130, "z": 100 }
+        ],
+        "streetLamps": [
+          { "id": "lamp-nw-1", "x": -120, "z": -90, "ratedWatts": 70, "state": "on" },
+          { "id": "lamp-n-2", "x": 0, "z": -90, "ratedWatts": 70, "state": "on" },
+          { "id": "lamp-ne-3", "x": 120, "z": -90, "ratedWatts": 70, "state": "on" },
+          { "id": "lamp-e-4", "x": 120, "z": 0, "ratedWatts": 70, "state": "on" },
+          { "id": "lamp-se-5", "x": 120, "z": 90, "ratedWatts": 70, "state": "on" },
+          { "id": "lamp-s-6", "x": 0, "z": 90, "ratedWatts": 70, "state": "on" },
+          { "id": "lamp-sw-7", "x": -120, "z": 90, "ratedWatts": 70, "state": "on" },
+          { "id": "lamp-w-8", "x": -120, "z": 0, "ratedWatts": 70, "state": "on" }
+        ]
+      },
+      {
+        "id": "cross-road-central",
+        "name": "Central Boulevard",
+        "type": "cross",
+        "width": 8,
+        "path": [
+          { "x": -130, "z": 0 },
+          { "x": 130, "z": 0 }
+        ]
+      }
+    ],
+    "buildings": [
+      {
+        "id": "dsatm-main",
+        "name": "Dayananda Sagar Academy of Technology and Management",
+        "shortCode": "DSATM Main Block",
+        "tag": "Main Academic Complex",
+        "assumed": false,
+        "color": "#E8D8C3",
+        "accentColor": "#3B82F6",
+        "position": { "x": -55, "y": 0, "z": 45 },
+        "dimensions": { "width": 75, "height": 22, "depth": 48 },
+        "shape": "rectangle",
+        "floorsCount": 4,
+        "department": "Computer Science and Engineering (AIML)",
+        "solarCapacityKwp": 120,
+        "lifts": ["lift-main-1", "lift-main-2"],
+        "floors": [
+          {
+            "floorNumber": 0,
+            "name": "Ground Floor",
+            "rooms": [
+              {
+                "id": "main-g01",
+                "name": "Principal Office & Boardroom",
+                "type": "admin",
+                "capacity": 25,
+                "schedule": "8:30-18:00",
+                "devices": [
+                  { "id": "dev-mg01-ac1", "name": "Inverter AC 2.0T", "type": "ac", "ratedWatts": 1800, "state": "on", "controllable": true },
+                  { "id": "dev-mg01-lgt", "name": "LED Panel Grid", "type": "light", "ratedWatts": 180, "state": "on", "controllable": true },
+                  { "id": "dev-mg01-pc1", "name": "Admin Workstations (x4)", "type": "computer", "ratedWatts": 400, "state": "on", "controllable": true }
+                ]
+              },
+              {
+                "id": "main-g02",
+                "name": "Central Server & Core Network Room",
+                "type": "server",
+                "capacity": 2,
+                "schedule": "24x7",
+                "protected": true,
+                "devices": [
+                  { "id": "dev-server-rack1", "name": "Edge AI & Blade Servers", "type": "server_rack", "ratedWatts": 3200, "state": "on", "controllable": false },
+                  { "id": "dev-server-ac1", "name": "Precision CRAC Unit 1", "type": "ac", "ratedWatts": 2400, "state": "on", "controllable": false },
+                  { "id": "dev-server-ups", "name": "Online UPS 20kVA", "type": "ups", "ratedWatts": 600, "state": "on", "controllable": false }
+                ]
+              },
+              {
+                "id": "main-g03",
+                "name": "Main Auditorium & Seminar Hall",
+                "type": "auditorium",
+                "capacity": 450,
+                "schedule": "Event based",
+                "devices": [
+                  { "id": "dev-aud-ac1", "name": "Package AC Unit East", "type": "ac", "ratedWatts": 4800, "state": "off", "controllable": true },
+                  { "id": "dev-aud-ac2", "name": "Package AC Unit West", "type": "ac", "ratedWatts": 4800, "state": "off", "controllable": true },
+                  { "id": "dev-aud-prj", "name": "Laser Stage Projector", "type": "projector", "ratedWatts": 650, "state": "off", "controllable": true },
+                  { "id": "dev-aud-lgt", "name": "Dimmable Stage & House Lights", "type": "light", "ratedWatts": 900, "state": "off", "controllable": true }
+                ]
+              }
+            ]
+          },
+          {
+            "floorNumber": 1,
+            "name": "1st Floor - AIML & CSE Dept",
+            "rooms": [
+              {
+                "id": "main-101",
+                "name": "HOD Cabin - AIML",
+                "type": "office",
+                "capacity": 6,
+                "schedule": "8:45-17:30",
+                "devices": [
+                  { "id": "dev-m101-ac", "name": "Split AC 1.5T", "type": "ac", "ratedWatts": 1400, "state": "on", "controllable": true },
+                  { "id": "dev-m101-lgt", "name": "LED Troffers", "type": "light", "ratedWatts": 90, "state": "on", "controllable": true },
+                  { "id": "dev-m101-fan", "name": "BLDC Ceiling Fan", "type": "fan", "ratedWatts": 32, "state": "on", "controllable": true }
+                ]
+              },
+              {
+                "id": "main-102",
+                "name": "AI Supercomputing & Vision Lab",
+                "type": "lab",
+                "capacity": 60,
+                "schedule": "9:00-16:30",
+                "devices": [
+                  { "id": "dev-m102-ac1", "name": "Cassette AC Front", "type": "ac", "ratedWatts": 2200, "state": "on", "controllable": true },
+                  { "id": "dev-m102-ac2", "name": "Cassette AC Rear", "type": "ac", "ratedWatts": 2200, "state": "on", "controllable": true },
+                  { "id": "dev-m102-pc", "name": "GPU Workstation Cluster (x30)", "type": "computer", "ratedWatts": 5500, "state": "on", "controllable": true },
+                  { "id": "dev-m102-lgt", "name": "Daylight Daylight LED Strips", "type": "light", "ratedWatts": 240, "state": "on", "controllable": true },
+                  { "id": "dev-m102-prj", "name": "Interactive Short-Throw Projector", "type": "projector", "ratedWatts": 350, "state": "on", "controllable": true }
+                ]
+              },
+              {
+                "id": "main-103",
+                "name": "Classroom 103 (AIML 5th Sem)",
+                "type": "classroom",
+                "capacity": 70,
+                "schedule": "9:00-16:30",
+                "devices": [
+                  { "id": "dev-m103-fan", "name": "Fans Bank (x6)", "type": "fan", "ratedWatts": 210, "state": "on", "controllable": true },
+                  { "id": "dev-m103-lgt", "name": "Tube Light Rows", "type": "light", "ratedWatts": 160, "state": "on", "controllable": true },
+                  { "id": "dev-m103-prj", "name": "Ceiling Projector", "type": "projector", "ratedWatts": 280, "state": "off", "controllable": true }
+                ]
+              }
+            ]
+          },
+          {
+            "floorNumber": 2,
+            "name": "2nd Floor - Innovation & Software Labs",
+            "rooms": [
+              {
+                "id": "main-201",
+                "name": "Cloud Computing & DevOps Lab 201",
+                "type": "lab",
+                "capacity": 65,
+                "schedule": "9:00-16:30",
+                "devices": [
+                  { "id": "dev-m201-ac", "name": "Tower AC 3.0T", "type": "ac", "ratedWatts": 2900, "state": "on", "controllable": true },
+                  { "id": "dev-m201-pc", "name": "Intel Core i7 Desktops (x40)", "type": "computer", "ratedWatts": 3600, "state": "on", "controllable": true },
+                  { "id": "dev-m201-lgt", "name": "LED Diffuser Battens", "type": "light", "ratedWatts": 220, "state": "on", "controllable": true }
+                ]
+              },
+              {
+                "id": "main-204",
+                "name": "IoT Embedded Systems Lab 204",
+                "type": "lab",
+                "capacity": 45,
+                "schedule": "9:00-16:30",
+                "devices": [
+                  { "id": "dev-m204-ac", "name": "Split AC 2.0T", "type": "ac", "ratedWatts": 1950, "state": "on", "controllable": true, "anomaly": "ghost_load" },
+                  { "id": "dev-m204-lgt", "name": "Ceiling Luminaires", "type": "light", "ratedWatts": 180, "state": "on", "controllable": true },
+                  { "id": "dev-m204-osc", "name": "Lab Test Benches", "type": "computer", "ratedWatts": 850, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          },
+          {
+            "floorNumber": 3,
+            "name": "3rd Floor - Central Library & Digital Hub",
+            "rooms": [
+              {
+                "id": "main-301",
+                "name": "Central Reference & Reading Hall",
+                "type": "library",
+                "capacity": 180,
+                "schedule": "8:30-20:00",
+                "devices": [
+                  { "id": "dev-m301-ac", "name": "Central VRF Ducted Zone", "type": "ac", "ratedWatts": 3800, "state": "on", "controllable": true },
+                  { "id": "dev-m301-lgt", "name": "Acoustic Low-Glare LED", "type": "light", "ratedWatts": 340, "state": "on", "controllable": true },
+                  { "id": "dev-m301-fan", "name": "Quiet Low-Speed Fans (x8)", "type": "fan", "ratedWatts": 250, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dsba-block",
+        "name": "Dayananda Sagar Business Academy",
+        "shortCode": "DSBA Block",
+        "tag": "Management & Executive Studies",
+        "assumed": false,
+        "color": "#D1D5DB",
+        "accentColor": "#8B5CF6",
+        "position": { "x": 0, "y": 0, "z": -50 },
+        "dimensions": { "width": 58, "height": 18, "depth": 42 },
+        "shape": "trapezoid",
+        "floorsCount": 3,
+        "department": "Dayananda Sagar Business Academy (DSBA)",
+        "solarCapacityKwp": 60,
+        "lifts": ["lift-dsba-1"],
+        "floors": [
+          {
+            "floorNumber": 0,
+            "name": "Ground Floor - DSBA Atrium & Dean Office",
+            "rooms": [
+              {
+                "id": "dsba-g01",
+                "name": "Dean & Faculty Lounge",
+                "type": "office",
+                "capacity": 20,
+                "schedule": "9:00-18:00",
+                "devices": [
+                  { "id": "dev-dsba-g01-ac", "name": "Inverter AC 2.5T", "type": "ac", "ratedWatts": 2300, "state": "on", "controllable": true },
+                  { "id": "dev-dsba-g01-lgt", "name": "Cove LED Lighting", "type": "light", "ratedWatts": 190, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          },
+          {
+            "floorNumber": 1,
+            "name": "1st Floor - Case Study Lecture Halls",
+            "rooms": [
+              {
+                "id": "dsba-101",
+                "name": "Harvard-Style Amphitheater Hall 101",
+                "type": "classroom",
+                "capacity": 85,
+                "schedule": "9:00-17:00",
+                "devices": [
+                  { "id": "dev-dsba-101-ac1", "name": "Ductable AC East", "type": "ac", "ratedWatts": 2800, "state": "on", "controllable": true },
+                  { "id": "dev-dsba-101-ac2", "name": "Ductable AC West", "type": "ac", "ratedWatts": 2800, "state": "on", "controllable": true },
+                  { "id": "dev-dsba-101-prj", "name": "Dual Presentation Displays", "type": "projector", "ratedWatts": 480, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mech-civil",
+        "name": "DSATM Mechanical and Civil Engineering",
+        "shortCode": "Mech & Civil Block",
+        "tag": "Engineering & Material Testing",
+        "assumed": false,
+        "color": "#94A3B8",
+        "accentColor": "#F59E0B",
+        "position": { "x": 68, "y": 0, "z": -40 },
+        "dimensions": { "width": 52, "height": 16, "depth": 40 },
+        "shape": "rectangle",
+        "floorsCount": 3,
+        "department": "Mechanical Engineering",
+        "solarCapacityKwp": 80,
+        "lifts": ["lift-mech-1"],
+        "floors": [
+          {
+            "floorNumber": 0,
+            "name": "Heavy Machinery & Workshop Bay",
+            "rooms": [
+              {
+                "id": "mc-g01",
+                "name": "CNC Machining & Rapid Prototyping Bay",
+                "type": "workshop",
+                "capacity": 35,
+                "schedule": "9:00-16:30",
+                "devices": [
+                  { "id": "dev-cnc-mill", "name": "3-Axis CNC VMC Mill", "type": "industrial", "ratedWatts": 6200, "state": "on", "controllable": true },
+                  { "id": "dev-lathe-bank", "name": "Precision Lathes (x4)", "type": "industrial", "ratedWatts": 4500, "state": "off", "controllable": true },
+                  { "id": "dev-weld-exhaust", "name": "Fume Extraction Blower", "type": "pump", "ratedWatts": 1200, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "block-c",
+        "name": "Block-C (ECE & EEE)",
+        "shortCode": "Block-C",
+        "tag": "Circuits & Robotics Complex",
+        "assumed": false,
+        "color": "#CBD5E1",
+        "accentColor": "#10B981",
+        "position": { "x": 68, "y": 0, "z": 15 },
+        "dimensions": { "width": 46, "height": 16, "depth": 36 },
+        "shape": "rectangle",
+        "floorsCount": 3,
+        "department": "Electronics and Communication Engineering",
+        "solarCapacityKwp": 50,
+        "lifts": [],
+        "floors": [
+          {
+            "floorNumber": 1,
+            "name": "VLSI & Signals Lab",
+            "rooms": [
+              {
+                "id": "c-101",
+                "name": "VLSI Cadence Simulation Lab",
+                "type": "lab",
+                "capacity": 50,
+                "schedule": "9:00-16:30",
+                "devices": [
+                  { "id": "dev-c101-ac", "name": "Split AC 2.0T", "type": "ac", "ratedWatts": 1900, "state": "on", "controllable": true },
+                  { "id": "dev-c101-pc", "name": "Simulation PCs (x25)", "type": "computer", "ratedWatts": 2500, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "basketball-court",
+        "name": "DSATM Basketball Court",
+        "shortCode": "Basketball Court",
+        "tag": "Outdoor Sports Facility",
+        "assumed": false,
+        "color": "#F97316",
+        "accentColor": "#EA580C",
+        "position": { "x": 75, "y": 0, "z": 65 },
+        "dimensions": { "width": 32, "height": 3, "depth": 22 },
+        "shape": "court",
+        "floorsCount": 1,
+        "department": "Campus Facilities & Maintenance",
+        "floors": [
+          {
+            "floorNumber": 0,
+            "name": "Court Surface & Floodlights",
+            "rooms": [
+              {
+                "id": "court-lights",
+                "name": "Court Floodlight Poles",
+                "type": "outdoor",
+                "capacity": 30,
+                "schedule": "17:00-21:00",
+                "devices": [
+                  { "id": "dev-court-f1", "name": "LED Stadium Floodlight Pole 1", "type": "light", "ratedWatts": 400, "state": "off", "controllable": true },
+                  { "id": "dev-court-f2", "name": "LED Stadium Floodlight Pole 2", "type": "light", "ratedWatts": 400, "state": "off", "controllable": true },
+                  { "id": "dev-court-f3", "name": "LED Stadium Floodlight Pole 3", "type": "light", "ratedWatts": 400, "state": "off", "controllable": true },
+                  { "id": "dev-court-f4", "name": "LED Stadium Floodlight Pole 4", "type": "light", "ratedWatts": 400, "state": "off", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "boys-hostel-1",
+        "name": "Boys Hostel 1",
+        "shortCode": "Boys Hostel 1",
+        "tag": "Student Residential Block",
+        "assumed": false,
+        "color": "#D97706",
+        "accentColor": "#B45309",
+        "position": { "x": 65, "y": 0, "z": 105 },
+        "dimensions": { "width": 64, "height": 26, "depth": 42 },
+        "shape": "rectangle",
+        "floorsCount": 5,
+        "department": "Campus Facilities & Maintenance",
+        "solarCapacityKwp": 45,
+        "lifts": ["lift-hostel-1"],
+        "floors": [
+          {
+            "floorNumber": 0,
+            "name": "Ground Floor - Mess & Common Hall",
+            "rooms": [
+              {
+                "id": "bh1-mess",
+                "name": "Hostel Dining Mess & Kitchen",
+                "type": "mess",
+                "capacity": 220,
+                "schedule": "7:00-22:00",
+                "devices": [
+                  { "id": "dev-bh1-refrig", "name": "Commercial Walk-in Chiller", "type": "industrial", "ratedWatts": 1800, "state": "on", "controllable": true },
+                  { "id": "dev-bh1-fans", "name": "Dining Hall Exhaust & Fans (x12)", "type": "fan", "ratedWatts": 750, "state": "on", "controllable": true },
+                  { "id": "dev-bh1-water", "name": "Reverse Osmosis UV Water Cooler", "type": "pump", "ratedWatts": 650, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          },
+          {
+            "floorNumber": 2,
+            "name": "2nd Floor - Student Rooms Wing B",
+            "rooms": [
+              {
+                "id": "bh1-208",
+                "name": "Hostel Room 208",
+                "type": "hostel_room",
+                "capacity": 3,
+                "schedule": "24x7",
+                "devices": [
+                  { "id": "dev-bh1-geyser208", "name": "Instant Electric Geyser 15L", "type": "geyser", "ratedWatts": 2000, "state": "off", "controllable": true, "anomaly": "geyser_run" },
+                  { "id": "dev-bh1-lights", "name": "Study LED Tubes & Fans", "type": "light", "ratedWatts": 120, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ev-station",
+        "name": "ElectricPe EV Charging Point",
+        "shortCode": "ElectricPe EV Hub",
+        "tag": "Smart E-Mobility Infrastructure",
+        "assumed": false,
+        "color": "#06B6D4",
+        "accentColor": "#0891B2",
+        "position": { "x": -115, "y": 0, "z": 95 },
+        "dimensions": { "width": 20, "height": 4, "depth": 14 },
+        "shape": "canopy",
+        "floorsCount": 1,
+        "department": "Campus Facilities & Maintenance",
+        "floors": [
+          {
+            "floorNumber": 0,
+            "name": "Charging Bays",
+            "rooms": [
+              {
+                "id": "ev-hub",
+                "name": "ElectricPe Dual Gun Bays",
+                "type": "ev",
+                "capacity": 4,
+                "schedule": "24x7",
+                "devices": [
+                  { "id": "dev-ev-gun1", "name": "CCS2 60kW DC Fast Charger Gun 1", "type": "ev_charger", "ratedWatts": 24000, "state": "on", "controllable": true },
+                  { "id": "dev-ev-gun2", "name": "Type 2 22kW AC Smart Charger Gun 2", "type": "ev_charger", "ratedWatts": 7400, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "green-belt",
+        "name": "DSATM Campus Green Belt & Eco Pond",
+        "shortCode": "Green Belt & Pond",
+        "tag": "Biodiversity, Trees & Rainwater Harvesting",
+        "assumed": false,
+        "color": "#16A34A",
+        "accentColor": "#15803D",
+        "position": { "x": 65, "y": 0, "z": -100 },
+        "dimensions": { "width": 70, "height": 2, "depth": 35 },
+        "shape": "park",
+        "floorsCount": 1,
+        "department": "Campus Facilities & Maintenance",
+        "treesCount": 450,
+        "rainwaterStorageKl": 250,
+        "floors": [
+          {
+            "floorNumber": 0,
+            "name": "Ecology & Harvesting Grounds",
+            "rooms": [
+              {
+                "id": "pond-pump",
+                "name": "Rainwater Aeration & Irrigation Pump",
+                "type": "pump",
+                "capacity": 0,
+                "schedule": "Auto / Moisture Sensor",
+                "devices": [
+                  { "id": "dev-pond-pump", "name": "Submersible Aeration Pump 3HP", "type": "pump", "ratedWatts": 2200, "state": "off", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "transformer-yard",
+        "name": "Substation, Transformers & DG Yard",
+        "shortCode": "Substation Yard",
+        "tag": "Assumed layout: 11kV Grid Feed, Step-down & Diesel Gensets",
+        "assumed": true,
+        "color": "#64748B",
+        "accentColor": "#DC2626",
+        "position": { "x": -110, "y": 0, "z": -60 },
+        "dimensions": { "width": 26, "height": 6, "depth": 22 },
+        "shape": "substation",
+        "floorsCount": 1,
+        "department": "Campus Facilities & Maintenance",
+        "floors": [
+          {
+            "floorNumber": 0,
+            "name": "High Tension Switchgear",
+            "rooms": [
+              {
+                "id": "substation-main",
+                "name": "BESCOM Metering & APFC Panel",
+                "type": "substation",
+                "capacity": 4,
+                "schedule": "24x7",
+                "devices": [
+                  { "id": "dev-apfc-panel", "name": "Automatic Power Factor Correction Capacitor Bank", "type": "industrial", "ratedWatts": 450, "state": "on", "controllable": true },
+                  { "id": "dev-dg-backup1", "name": "Kirloskar 250kVA Silent DG Set 1", "type": "dg_set", "ratedWatts": 0, "state": "standby", "controllable": true },
+                  { "id": "dev-dg-backup2", "name": "Cummins 250kVA Silent DG Set 2", "type": "dg_set", "ratedWatts": 0, "state": "standby", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stp-plant",
+        "name": "Sewage Treatment & Greywater Recirculation",
+        "shortCode": "STP Plant",
+        "tag": "Assumed layout: Zero Liquid Discharge STP",
+        "assumed": true,
+        "color": "#0284C7",
+        "accentColor": "#0369A1",
+        "position": { "x": -95, "y": 0, "z": 0 },
+        "dimensions": { "width": 24, "height": 5, "depth": 20 },
+        "shape": "utility",
+        "floorsCount": 1,
+        "department": "Campus Facilities & Maintenance",
+        "floors": [
+          {
+            "floorNumber": 0,
+            "name": "Treatment Pumps",
+            "rooms": [
+              {
+                "id": "stp-room",
+                "name": "Aerobic Diffuser Blowers & Filtration",
+                "type": "utility",
+                "capacity": 2,
+                "schedule": "24x7 Intermittent",
+                "devices": [
+                  { "id": "dev-stp-blower", "name": "MBBR Air Blower 5HP", "type": "pump", "ratedWatts": 3700, "state": "on", "controllable": true },
+                  { "id": "dev-stp-filter", "name": "Dual Media Recirculation Pump", "type": "pump", "ratedWatts": 1500, "state": "on", "controllable": true }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "lifts": [
+      { "id": "lift-main-1", "buildingId": "dsatm-main", "name": "Academic Elevator A", "capacityKg": 680, "currentFloor": 1, "status": "running", "faultCode": "NORMAL", "energyKwh": 14.8, "tripsToday": 84 },
+      { "id": "lift-main-2", "buildingId": "dsatm-main", "name": "Academic Elevator B", "capacityKg": 680, "currentFloor": 3, "status": "idle", "faultCode": "NORMAL", "energyKwh": 12.3, "tripsToday": 71 },
+      { "id": "lift-dsba-1", "buildingId": "dsba-block", "name": "DSBA Central Lift", "capacityKg": 544, "currentFloor": 0, "status": "idle", "faultCode": "NORMAL", "energyKwh": 8.4, "tripsToday": 42 },
+      { "id": "lift-mech-1", "buildingId": "mech-civil", "name": "Engineering Bay Freight Lift", "capacityKg": 1000, "currentFloor": 0, "status": "idle", "faultCode": "NORMAL", "energyKwh": 9.1, "tripsToday": 35 },
+      { "id": "lift-hostel-1", "buildingId": "boys-hostel-1", "name": "Hostel Passenger Lift", "capacityKg": 544, "currentFloor": 4, "status": "running", "faultCode": "NORMAL", "energyKwh": 16.2, "tripsToday": 112 }
+    ]
+  }
+}
