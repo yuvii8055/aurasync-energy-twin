@@ -12,10 +12,14 @@ import {
 } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore.js';
 import { sounds } from '../lib/utils.js';
+import { getSavedTickets, saveTickets } from '../config/seedTickets.js';
 
 export default function WorkerTasksPage() {
   const { user } = useAuthStore();
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const all = getSavedTickets();
+    return all.filter(t => t.status === 'assigned' || t.status === 'in_progress');
+  });
   const [selectedTask, setSelectedTask] = useState(null);
   const [photoProof, setPhotoProof] = useState(null);
   const [checklist, setChecklist] = useState([
@@ -29,42 +33,57 @@ export default function WorkerTasksPage() {
     fetch('/api/tickets')
       .then(res => res.json())
       .then(json => {
-        if (json.success) {
-          // Filter tickets assigned or relevant for technician
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
           const myTasks = json.data.filter(t => t.status === 'assigned' || t.status === 'in_progress');
           setTasks(myTasks);
+          saveTickets(json.data);
         }
       })
       .catch(() => {});
   }, []);
 
   const handleStartTask = async (taskId) => {
+    sounds.playChime('bubble');
+    const allTickets = getSavedTickets();
+    const updated = allTickets.map(t => t.ticketId === taskId ? { ...t, status: 'in_progress' } : t);
+    saveTickets(updated);
+    setTasks(updated.filter(t => t.status === 'assigned' || t.status === 'in_progress'));
+
     try {
-      await fetch(`/api/tickets/${taskId}/status`, {
+      fetch(`/api/tickets/${taskId}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: 'in_progress', note: 'Technician arrived on site' })
-      });
-      sounds.playChime('bubble');
-      setTasks(prev => prev.map(t => t.ticketId === taskId ? { ...t, status: 'in_progress' } : t));
+      }).catch(() => {});
     } catch {}
   };
 
   const handleResolveWithProof = async (taskId) => {
+    sounds.playChime('success');
+    const allTickets = getSavedTickets();
+    const updated = allTickets.map(t =>
+      t.ticketId === taskId
+        ? {
+            ...t,
+            status: 'resolved',
+            afterMedia: [{ url: photoProof || 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80' }]
+          }
+        : t
+    );
+    saveTickets(updated);
+    setTasks(updated.filter(t => t.status === 'assigned' || t.status === 'in_progress'));
+    setSelectedTask(null);
+    setPhotoProof(null);
+
     try {
-      await fetch(`/api/tickets/${taskId}/complete`, {
+      fetch(`/api/tickets/${taskId}/complete`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           afterPhotoUrl: photoProof || 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80',
           note: 'Work completed and tested by technician.'
         })
-      });
-      sounds.playChime('success');
-      alert('Task resolved! Before & After proof transmitted to HOD and student.');
-      setTasks(prev => prev.filter(t => t.ticketId !== taskId));
-      setSelectedTask(null);
-      setPhotoProof(null);
+      }).catch(() => {});
     } catch {}
   };
 
@@ -91,31 +110,29 @@ export default function WorkerTasksPage() {
         </span>
       </div>
 
-      {/* Daily Preventive Checklist */}
+      {/* Routine Daily Preventive Checklist */}
       <div className="p-5 rounded-3xl glass-panel bg-white/5 border border-white/10 space-y-3">
-        <div className="flex items-center justify-between">
-          <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-            <CalendarCheck className="w-4 h-4 text-cyan-400" />
-            Daily Preventive Checklist
-          </h3>
-          <span className="text-[10px] text-slate-400 font-mono">
-            {checklist.filter(c => c.done).length} of {checklist.length} Completed
-          </span>
-        </div>
-
+        <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+          <CalendarCheck className="w-4 h-4 text-emerald-400" />
+          Daily Preventive Care Rounds
+        </span>
         <div className="space-y-2">
           {checklist.map((item) => (
             <button
               key={item.id}
               onClick={() => toggleChecklistItem(item.id)}
-              className="w-full text-left p-3 rounded-2xl bg-black/30 border border-white/5 flex items-center justify-between text-xs hover:bg-white/5 transition"
+              className="w-full p-3 rounded-2xl bg-black/40 border border-white/5 flex items-center justify-between text-left hover:border-emerald-500/30 transition text-xs"
             >
-              <span className={`font-medium ${item.done ? 'line-through text-slate-500' : 'text-slate-200'}`}>
+              <span className={`text-slate-300 ${item.done ? 'line-through opacity-60 text-emerald-300' : ''}`}>
                 {item.task}
               </span>
-              <div className={`w-5 h-5 rounded-lg border flex items-center justify-center ${
-                item.done ? 'bg-emerald-500 border-emerald-400 text-black' : 'border-white/20'
-              }`}>
+              <div
+                className={`w-5 h-5 rounded-lg flex items-center justify-center border transition ${
+                  item.done
+                    ? 'bg-emerald-500 border-emerald-500 text-slate-900'
+                    : 'border-white/20'
+                }`}
+              >
                 {item.done && <Check className="w-3.5 h-3.5 stroke-[3]" />}
               </div>
             </button>
@@ -123,75 +140,88 @@ export default function WorkerTasksPage() {
         </div>
       </div>
 
-      {/* Assigned Tasks Section */}
+      {/* Active Dispatched Work Orders */}
       <div className="space-y-3">
-        <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center justify-between">
-          <span>Assigned Urgent Incidents ({tasks.length})</span>
-          <span className="text-[10px] text-slate-400">Mobile Action Center</span>
-        </h3>
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+            <Clock className="w-4 h-4 text-cyan-400" />
+            Active Assigned Work Orders ({tasks.length})
+          </span>
+          <span className="text-[11px] text-slate-400">Smart Priority Queue</span>
+        </div>
 
         {tasks.map((task) => (
           <div
             key={task.ticketId}
-            className="p-5 rounded-3xl glass-panel bg-white/5 border border-white/10 space-y-3"
+            className="p-5 rounded-3xl glass-panel bg-white/5 border border-white/10 space-y-3 hover:border-white/20 transition"
           >
             <div className="flex items-center justify-between">
               <span className="font-mono text-xs font-bold text-cyan-400">{task.ticketId}</span>
-              <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${
-                task.urgency === 'emergency' ? 'bg-rose-500/20 text-rose-400' : 'bg-amber-500/20 text-amber-300'
-              }`}>
+              <span
+                className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${
+                  task.urgency === 'emergency'
+                    ? 'bg-rose-500/20 text-rose-400 animate-pulse'
+                    : task.urgency === 'high'
+                    ? 'bg-amber-500/20 text-amber-300'
+                    : 'bg-blue-500/20 text-blue-300'
+                }`}
+              >
                 {task.urgency}
               </span>
             </div>
 
             <div>
               <h4 className="text-sm font-bold text-white">{task.title}</h4>
-              <p className="text-xs text-slate-400 mt-1">{task.description}</p>
+              <p className="text-xs text-slate-400 mt-1 leading-relaxed">{task.description}</p>
             </div>
 
-            <div className="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-white/5 font-mono">
-              <span className="flex items-center gap-1 font-sans">
-                <MapPin className="w-3.5 h-3.5 text-slate-500" />
-                {task.locationRef.buildingId}
-              </span>
-              <span className="text-emerald-400 capitalize">{task.status.replace('_', ' ')}</span>
+            <div className="flex items-center gap-2 text-xs text-slate-400">
+              <MapPin className="w-3.5 h-3.5 text-slate-500" />
+              <span>{task.locationRef?.buildingId} • Floor {task.locationRef?.floor ?? 1}</span>
             </div>
 
-            {/* Action Buttons for Worker */}
-            <div className="pt-2 flex gap-2">
+            {/* Action Bar */}
+            <div className="pt-3 border-t border-white/5 flex items-center justify-between gap-3">
               {task.status === 'assigned' && (
                 <button
                   onClick={() => handleStartTask(task.ticketId)}
-                  className="flex-1 py-2.5 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow transition active:scale-95 flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition active:scale-95 cursor-pointer"
                 >
-                  <Play className="w-3.5 h-3.5" />
-                  <span>Start Work On-Site</span>
+                  <Play className="w-3.5 h-3.5 fill-current" />
+                  <span>Accept & Start Work</span>
                 </button>
               )}
 
               {task.status === 'in_progress' && (
                 <div className="w-full space-y-2">
-                  <div className="flex items-center justify-between">
-                    <label className="text-[11px] text-slate-300 font-semibold flex items-center gap-1.5 cursor-pointer">
-                      <Camera className="w-4 h-4 text-cyan-400" />
-                      <span>Upload "After" Photo Proof</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={() => setPhotoProof('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80')}
-                        className="hidden"
-                      />
-                    </label>
-                    {photoProof && <span className="text-[10px] text-emerald-400 font-bold">✓ Photo Attached</span>}
-                  </div>
-
                   <button
-                    onClick={() => handleResolveWithProof(task.ticketId)}
-                    className="w-full py-2.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-bold text-xs shadow-lg shadow-emerald-500/25 transition active:scale-95 flex items-center justify-center gap-1.5"
+                    onClick={() => setSelectedTask(selectedTask === task.ticketId ? null : task.ticketId)}
+                    className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition active:scale-95 cursor-pointer"
                   >
                     <CheckCircle2 className="w-4 h-4" />
-                    <span>Complete & Transmit Evidence</span>
+                    <span>Mark Resolved with Proof</span>
                   </button>
+
+                  {selectedTask === task.ticketId && (
+                    <div className="p-3.5 rounded-2xl bg-black/60 border border-emerald-500/30 space-y-3 animate-in fade-in duration-200">
+                      <span className="text-xs font-bold text-emerald-400">
+                        Upload After-Service Photo Proof
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Photo URL or leave blank for default technician proof"
+                        value={photoProof || ''}
+                        onChange={(e) => setPhotoProof(e.target.value)}
+                        className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-white"
+                      />
+                      <button
+                        onClick={() => handleResolveWithProof(task.ticketId)}
+                        className="w-full py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition cursor-pointer"
+                      >
+                        Submit Proof & Close Ticket
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -199,8 +229,10 @@ export default function WorkerTasksPage() {
         ))}
 
         {tasks.length === 0 && (
-          <div className="p-8 text-center glass-panel bg-white/5 rounded-3xl border border-white/10 text-slate-400 text-xs">
-            🎉 All assigned tasks for this shift have been resolved!
+          <div className="p-8 rounded-3xl glass-panel bg-white/5 border border-white/10 text-center space-y-2">
+            <CheckCircle2 className="w-8 h-8 text-emerald-400 mx-auto" />
+            <h4 className="text-sm font-bold text-white">All Dispatched Work Orders Clear!</h4>
+            <p className="text-xs text-slate-400">Great job! No pending assigned incidents for this shift.</p>
           </div>
         )}
       </div>

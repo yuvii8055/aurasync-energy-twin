@@ -15,9 +15,10 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { formatINR } from '../lib/utils.js';
+import { getSavedTickets, saveTickets } from '../config/seedTickets.js';
 
 export default function HelpdeskPage({ onOpenReportModal }) {
-  const [tickets, setTickets] = useState([]);
+  const [tickets, setTickets] = useState(() => getSavedTickets());
   const [filterCategory, setFilterCategory] = useState('');
   const [filterUrgency, setFilterUrgency] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,7 +27,10 @@ export default function HelpdeskPage({ onOpenReportModal }) {
     fetch('/api/tickets')
       .then(res => res.json())
       .then(json => {
-        if (json.success) setTickets(json.data);
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+          setTickets(json.data);
+          saveTickets(json.data);
+        }
       })
       .catch(() => {});
   }, []);

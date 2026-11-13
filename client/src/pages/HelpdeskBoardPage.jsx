@@ -7,24 +7,37 @@ import {
   CheckCircle2,
   MapPin,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  ShieldCheck,
+  Plus
 } from 'lucide-react';
 import { sounds } from '../lib/utils.js';
+import { getSavedTickets, saveTickets, getSavedWorkers, saveWorkers } from '../config/seedTickets.js';
 
 export default function HelpdeskBoardPage() {
-  const [tickets, setTickets] = useState([]);
-  const [workers, setWorkers] = useState([]);
+  const [tickets, setTickets] = useState(() => getSavedTickets());
+  const [workers, setWorkers] = useState(() => getSavedWorkers());
   const [selectedTicket, setSelectedTicket] = useState(null);
 
   useEffect(() => {
     fetch('/api/tickets')
       .then(res => res.json())
-      .then(json => { if (json.success) setTickets(json.data); })
+      .then(json => {
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+          setTickets(json.data);
+          saveTickets(json.data);
+        }
+      })
       .catch(() => {});
 
     fetch('/api/users/workers')
       .then(res => res.json())
-      .then(json => { if (json.success) setWorkers(json.data); })
+      .then(json => {
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+          setWorkers(json.data);
+          saveWorkers(json.data);
+        }
+      })
       .catch(() => {});
   }, []);
 
@@ -37,35 +50,62 @@ export default function HelpdeskBoardPage() {
   ];
 
   const handleSmartAssign = async (ticket) => {
+    sounds.playChime('success');
+    // Find best technician
+    const availableWorker = workers.find(w => w.availability === 'available') || workers[0];
+    const workerName = availableWorker?.name || 'Manjunath Gowda';
+    const workerId = availableWorker?.id || 'w-1';
+
+    const updatedTicket = {
+      ...ticket,
+      status: 'assigned',
+      assignedWorkerId: workerId,
+      assignedWorkerName: workerName,
+      timeline: [
+        ...(ticket.timeline || []),
+        { status: 'assigned', byUserId: 'usr-hod-1', at: new Date().toISOString(), note: `Smart-routed to ${workerName} based on skills matrix` }
+      ]
+    };
+
+    const nextTickets = tickets.map(t => t.ticketId === ticket.ticketId ? updatedTicket : t);
+    setTickets(nextTickets);
+    saveTickets(nextTickets);
+
+    // Sync to backend if available
     try {
-      const res = await fetch(`/api/tickets/${ticket.ticketId}/assign`, {
+      fetch(`/api/tickets/${ticket.ticketId}/assign`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ instructions: 'Smart-routed based on skill and proximity' })
-      });
-      const data = await res.json();
-      if (data.success) {
-        sounds.playChime('success');
-        // Update local state
-        setTickets(prev => prev.map(t => t.ticketId === ticket.ticketId ? data.data : t));
-      }
+        body: JSON.stringify({ workerId, instructions: 'Smart-routed based on skill and proximity' })
+      }).catch(() => {});
     } catch {}
   };
 
   const handleAdvanceStatus = async (ticket, nextStatus) => {
+    sounds.playChime('bubble');
+    const updatedTicket = {
+      ...ticket,
+      status: nextStatus,
+      timeline: [
+        ...(ticket.timeline || []),
+        { status: nextStatus, byUserId: 'technician', at: new Date().toISOString(), note: `Status advanced to ${nextStatus}` }
+      ]
+    };
+
+    const nextTickets = tickets.map(t => t.ticketId === ticket.ticketId ? updatedTicket : t);
+    setTickets(nextTickets);
+    saveTickets(nextTickets);
+
     try {
-      const res = await fetch(`/api/tickets/${ticket.ticketId}/status`, {
+      fetch(`/api/tickets/${ticket.ticketId}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: nextStatus })
-      });
-      const data = await res.json();
-      if (data.success) {
-        sounds.playChime('bubble');
-        setTickets(prev => prev.map(t => t.ticketId === ticket.ticketId ? data.data : t));
-      }
+      }).catch(() => {});
     } catch {}
   };
+
+  const availableCount = workers.filter(w => w.availability === 'available').length;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
@@ -86,8 +126,19 @@ export default function HelpdeskBoardPage() {
           </p>
         </div>
 
-        <div className="text-xs text-slate-400 font-mono">
-          Available Technicians: <span className="text-emerald-400 font-bold">{workers.filter(w => w.availability === 'available').length} of {workers.length}</span>
+        <div className="flex items-center gap-3">
+          <div className="p-3 rounded-2xl bg-black/40 border border-white/10 text-xs font-mono">
+            <div className="text-[10px] text-slate-400">Available Technicians</div>
+            <div className="text-emerald-400 font-bold text-sm">
+              {availableCount} of {workers.length} active
+            </div>
+          </div>
+          <div className="p-3 rounded-2xl bg-black/40 border border-white/10 text-xs font-mono">
+            <div className="text-[10px] text-slate-400">Total Live Incidents</div>
+            <div className="text-cyan-400 font-bold text-sm">
+              {tickets.length} logged
+            </div>
+          </div>
         </div>
       </div>
 
@@ -116,7 +167,8 @@ export default function HelpdeskBoardPage() {
                     <div className="flex items-center justify-between">
                       <span className="font-mono text-[10px] text-cyan-400 font-bold">{t.ticketId}</span>
                       <span className={`text-[9px] font-bold uppercase px-1.5 py-0.2 rounded-full ${
-                        t.urgency === 'emergency' ? 'bg-rose-500/20 text-rose-400' : 'bg-blue-500/20 text-blue-300'
+                        t.urgency === 'emergency' ? 'bg-rose-500/20 text-rose-400 animate-pulse' :
+                        t.urgency === 'high' ? 'bg-amber-500/20 text-amber-300' : 'bg-blue-500/20 text-blue-300'
                       }`}>
                         {t.urgency}
                       </span>
@@ -126,11 +178,11 @@ export default function HelpdeskBoardPage() {
                     <p className="text-[11px] text-slate-400 line-clamp-2">{t.description}</p>
 
                     <div className="flex items-center justify-between text-[10px] text-slate-500 pt-1 border-t border-white/5">
-                      <span>{t.locationRef?.buildingId}</span>
+                      <span className="capitalize">{t.locationRef?.buildingId?.replace('-', ' ')}</span>
                       {col.id === 'new' && (
                         <button
                           onClick={() => handleSmartAssign(t)}
-                          className="px-2 py-0.5 rounded bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold flex items-center gap-1"
+                          className="px-2 py-0.5 rounded bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold flex items-center gap-1 cursor-pointer transition hover:scale-105 active:scale-95"
                           title="Smart Assign to best available technician"
                         >
                           <Sparkles className="w-2.5 h-2.5" />
@@ -140,9 +192,25 @@ export default function HelpdeskBoardPage() {
                       {col.id === 'assigned' && (
                         <button
                           onClick={() => handleAdvanceStatus(t, 'in_progress')}
-                          className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold"
+                          className="px-2 py-0.5 rounded bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 font-bold cursor-pointer transition"
                         >
                           Start →
+                        </button>
+                      )}
+                      {col.id === 'in_progress' && (
+                        <button
+                          onClick={() => handleAdvanceStatus(t, 'resolved')}
+                          className="px-2 py-0.5 rounded bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold cursor-pointer transition"
+                        >
+                          Resolve ✓
+                        </button>
+                      )}
+                      {col.id === 'resolved' && (
+                        <button
+                          onClick={() => handleAdvanceStatus(t, 'closed')}
+                          className="px-2 py-0.5 rounded bg-slate-500/20 hover:bg-slate-500/30 text-slate-300 font-bold cursor-pointer transition"
+                        >
+                          Close
                         </button>
                       )}
                     </div>

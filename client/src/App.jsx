@@ -276,13 +276,13 @@ export default function App() {
       {/* Page Routing with Fluid Transitions & Error Boundary */}
       <main id="main-content" className="flex-1 w-full outline-none">
         <ErrorBoundary>
-          <AnimatePresence mode="wait" initial={false}>
+          <AnimatePresence mode="sync" initial={false}>
             <motion.div
               key={location.pathname}
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.22, ease: 'easeInOut' }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.12, ease: 'easeOut' }}
             >
               <Routes location={location}>
                 <Route path="/" element={<LandingPage />} />

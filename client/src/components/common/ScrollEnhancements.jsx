@@ -6,12 +6,20 @@ export default function ScrollEnhancements() {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = windowHeight > 0 ? (totalScroll / windowHeight) * 100 : 0;
-      setScrollProgress(scrollPercent);
-      setShowBackToTop(totalScroll > 280);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const totalScroll = document.documentElement.scrollTop || document.body.scrollTop;
+          const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrollPercent = windowHeight > 0 ? (totalScroll / windowHeight) * 100 : 0;
+          setScrollProgress(scrollPercent);
+          setShowBackToTop(totalScroll > 280);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

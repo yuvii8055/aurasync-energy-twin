@@ -25,6 +25,24 @@ export default function CustomCursor() {
 
     if (!dot || !ring || !ripple) return;
 
+    let hoverCheckScheduled = false;
+
+    const checkHover = (target) => {
+      if (!target || typeof target.closest !== 'function') return;
+      const clickable = target.closest('button, a, input, textarea, select, [role="button"], .cursor-pointer');
+      if (clickable && !isHovering) {
+        isHovering = true;
+        ring.style.borderColor = '#10b981';
+        ring.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
+        ring.style.boxShadow = '0 0 16px rgba(16, 185, 129, 0.5)';
+      } else if (!clickable && isHovering) {
+        isHovering = false;
+        ring.style.borderColor = 'rgba(6, 182, 212, 0.6)';
+        ring.style.backgroundColor = 'transparent';
+        ring.style.boxShadow = '0 0 10px rgba(6, 182, 212, 0.25)';
+      }
+    };
+
     const onMouseMove = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
@@ -40,21 +58,13 @@ export default function CustomCursor() {
       // Direct zero-lag DOM transform for lead dot
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(${isClicking ? 0.75 : 1})`;
 
-      // Check hover on clickable elements
-      const target = e.target;
-      if (target && typeof target.closest === 'function') {
-        const clickable = target.closest('button, a, input, textarea, select, [role="button"], .cursor-pointer');
-        if (clickable && !isHovering) {
-          isHovering = true;
-          ring.style.borderColor = '#10b981';
-          ring.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
-          ring.style.boxShadow = '0 0 16px rgba(16, 185, 129, 0.5)';
-        } else if (!clickable && isHovering) {
-          isHovering = false;
-          ring.style.borderColor = 'rgba(6, 182, 212, 0.6)';
-          ring.style.backgroundColor = 'transparent';
-          ring.style.boxShadow = '0 0 10px rgba(6, 182, 212, 0.25)';
-        }
+      // Throttled hover check (runs at most once per frame, never blocking input)
+      if (!hoverCheckScheduled) {
+        hoverCheckScheduled = true;
+        requestAnimationFrame(() => {
+          checkHover(e.target);
+          hoverCheckScheduled = false;
+        });
       }
     };
 
@@ -62,27 +72,25 @@ export default function CustomCursor() {
       isClicking = true;
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(0.65)`;
 
-      // Trigger transient expanding ripple animation that NEVER gets stuck
       if (ripple) {
         if (rippleTimeoutId) clearTimeout(rippleTimeoutId);
-
-        ripple.style.transition = 'none';
         ripple.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%) scale(0.3)`;
         ripple.style.opacity = '0.9';
         ripple.style.display = 'block';
 
-        // Force browser reflow to apply instant reset before animation
-        void ripple.offsetWidth;
-
-        ripple.style.transition = 'transform 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 320ms ease-out';
-        ripple.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%) scale(2.4)`;
-        ripple.style.opacity = '0';
+        requestAnimationFrame(() => {
+          if (!ripple) return;
+          ripple.style.transition = 'transform 260ms cubic-bezier(0.16, 1, 0.3, 1), opacity 260ms ease-out';
+          ripple.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%) scale(2.2)`;
+          ripple.style.opacity = '0';
+        });
 
         rippleTimeoutId = setTimeout(() => {
           if (ripple) {
             ripple.style.display = 'none';
+            ripple.style.transition = 'none';
           }
-        }, 330);
+        }, 280);
       }
     };
 

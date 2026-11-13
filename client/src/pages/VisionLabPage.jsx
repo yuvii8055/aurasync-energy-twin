@@ -188,16 +188,26 @@ export default function VisionLabPage() {
     };
   }, [pushEvent, setVisionDetectedCount]);
 
+  const fileInputRef = useRef(null);
+
   // Handle Clean Camera Stop & Loop Cancellation
   const stopWebcam = useCallback(() => {
     if (animFrameRef.current) {
       cancelAnimationFrame(animFrameRef.current);
       animFrameRef.current = null;
     }
-    if (videoRef.current && videoRef.current.srcObject) {
-      const tracks = videoRef.current.srcObject.getTracks();
-      tracks.forEach((track) => track.stop());
-      videoRef.current.srcObject = null;
+    if (videoRef.current) {
+      if (videoRef.current.srcObject) {
+        const tracks = videoRef.current.srcObject.getTracks();
+        tracks.forEach((track) => track.stop());
+        videoRef.current.srcObject = null;
+      }
+      if (videoRef.current.src) {
+        try {
+          videoRef.current.pause();
+          videoRef.current.src = '';
+        } catch (e) {}
+      }
     }
     const canvas = canvasRef.current;
     if (canvas) {
@@ -214,6 +224,59 @@ export default function VisionLabPage() {
       if (sampleAnimRef.current) cancelAnimationFrame(sampleAnimRef.current);
     };
   }, [stopWebcam]);
+
+  // Video File Intake: Upload any MP4/WebM campus CCTV recording
+  const handleVideoFileUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    stopWebcam();
+    setSourceMode('video-file');
+    setCameraDeviceName(`Video Intake: ${file.name}`);
+    sounds.playChime('success');
+
+    const videoUrl = URL.createObjectURL(file);
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+      videoRef.current.src = videoUrl;
+      videoRef.current.loop = true;
+      videoRef.current.muted = true;
+      videoRef.current.playsInline = true;
+
+      videoRef.current.onloadeddata = () => {
+        videoRef.current.play().catch(() => {});
+        const w = videoRef.current.videoWidth || 640;
+        const h = videoRef.current.videoHeight || 480;
+        setResolution({ width: w, height: h });
+        startDetectionLoop();
+      };
+    }
+  };
+
+  // Pre-configured Sample Campus CCTV Video Intake
+  const loadSampleVideoIntake = () => {
+    stopWebcam();
+    setSourceMode('video-file');
+    setCameraDeviceName('Campus Lab 204 High-Def Video Stream');
+    sounds.playChime('chime');
+
+    const sampleUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4';
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+      videoRef.current.src = sampleUrl;
+      videoRef.current.loop = true;
+      videoRef.current.muted = true;
+      videoRef.current.playsInline = true;
+
+      videoRef.current.onloadeddata = () => {
+        videoRef.current.play().catch(() => {});
+        const w = videoRef.current.videoWidth || 640;
+        const h = videoRef.current.videoHeight || 480;
+        setResolution({ width: w, height: h });
+        startDetectionLoop();
+      };
+    }
+  };
 
   // Start Real Hardware Webcam with Non-overlapping RAF detection
   const startWebcam = async () => {
@@ -240,8 +303,8 @@ export default function VisionLabPage() {
       }
     } catch (err) {
       console.warn('Webcam error:', err);
-      alert('Webcam permission not granted. Switched to Fallback Video Simulator.');
-      setSourceMode('simulation');
+      // Seamless fallback to sample video intake
+      loadSampleVideoIntake();
     }
   };
 
@@ -516,8 +579,8 @@ export default function VisionLabPage() {
         {/* Left: Video Viewport & Detection Feed */}
         <div className="lg:col-span-8 space-y-4">
           <div className="relative w-full h-[460px] rounded-3xl overflow-hidden glass-panel bg-black border border-white/15 flex items-center justify-center">
-            {/* 1. Live Hardware Webcam Feed */}
-            {sourceMode === 'webcam' && (
+            {/* 1. Live Hardware Webcam Feed or Video File Intake */}
+            {(sourceMode === 'webcam' || sourceMode === 'video-file') && (
               <>
                 <video
                   ref={videoRef}
@@ -525,6 +588,7 @@ export default function VisionLabPage() {
                   playsInline
                   muted
                   autoPlay
+                  loop
                 />
                 <canvas
                   ref={canvasRef}
@@ -649,6 +713,15 @@ export default function VisionLabPage() {
 
           {/* Source Mode Selector Pill Bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl glass-panel bg-white/5 border border-white/10">
+            {/* Hidden Video File Input */}
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleVideoFileUpload}
+              accept="video/mp4,video/webm,video/quicktime,video/*"
+              className="hidden"
+            />
+
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => {
@@ -676,6 +749,32 @@ export default function VisionLabPage() {
                 }`}
               >
                 Laptop Webcam (Live)
+              </button>
+
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition flex items-center gap-1.5 ${
+                  sourceMode === 'video-file' && !cameraDeviceName.includes('Sample')
+                    ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300'
+                    : 'bg-white/5 border-white/10 text-slate-400 hover:text-white'
+                }`}
+                title="Upload MP4 or WebM video file for computer vision inference"
+              >
+                <Upload className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Upload Video Intake</span>
+              </button>
+
+              <button
+                onClick={loadSampleVideoIntake}
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition flex items-center gap-1.5 ${
+                  sourceMode === 'video-file' && cameraDeviceName.includes('Sample')
+                    ? 'bg-cyan-500/20 border-cyan-500 text-cyan-300'
+                    : 'bg-white/5 border-white/10 text-slate-400 hover:text-white'
+                }`}
+                title="Load high-definition looping CCTV video stream"
+              >
+                <Video className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Sample CCTV Video</span>
               </button>
 
               <button
