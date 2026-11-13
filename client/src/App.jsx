@@ -15,6 +15,11 @@ import SimDebugDrawer from './components/common/SimDebugDrawer.jsx';
 import AuraAIChatDrawer from './components/ai/AuraAIChatDrawer.jsx';
 import ErrorBoundary from './components/common/ErrorBoundary.jsx';
 
+import MorphismLoadingScreen from './components/common/MorphismLoadingScreen.jsx';
+import CookieConsentBanner from './components/common/CookieConsentBanner.jsx';
+import FloatingContactButton from './components/common/FloatingContactButton.jsx';
+import ScrollEnhancements from './components/common/ScrollEnhancements.jsx';
+
 import LandingPage from './pages/LandingPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
@@ -33,6 +38,7 @@ import SettingsPage from './pages/SettingsPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import PhoneCameraPage from './pages/PhoneCameraPage.jsx';
 import PairPage from './pages/PairPage.jsx';
+import LegalPage from './pages/LegalPage.jsx';
 
 import { useCampusStore } from './store/useCampusStore.js';
 import { useIslandStore } from './store/useIslandStore.js';
@@ -53,8 +59,33 @@ export default function App() {
   const [isAiDrawerOpen, setIsAiDrawerOpen] = useState(false);
   const [showEasterEgg, setShowEasterEgg] = useState(false);
 
+  // Futuristic Morphism Loading Screen on first boot
+  const [showLoadingScreen, setShowLoadingScreen] = useState(() => {
+    return !sessionStorage.getItem('aurasync_booted_session');
+  });
+
   // Check if current route is dedicated mobile camera or pairing page
   const isMobileCameraRoute = location.pathname.startsWith('/camera') || location.pathname === '/pair';
+
+  // Transparent UTM Campaign Attribution Tracking
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(location.search);
+      const utmSource = params.get('utm_source');
+      const utmMedium = params.get('utm_medium');
+      const utmCampaign = params.get('utm_campaign');
+      if (utmSource || utmCampaign) {
+        sessionStorage.setItem('aurasync_utm_attribution', JSON.stringify({
+          source: utmSource || 'direct',
+          medium: utmMedium || 'web',
+          campaign: utmCampaign || 'hackathon_dsatm',
+          capturedAt: new Date().toISOString()
+        }));
+      }
+    } catch (e) {
+      console.warn('UTM tracking capture bypassed');
+    }
+  }, [location.search]);
 
   // Simulation Clock Runner: advances simulation time every 1000ms
   useEffect(() => {
@@ -107,7 +138,7 @@ export default function App() {
     return unsub;
   }, [updateTelemetry]);
 
-  // Real-time Socket.IO Connection (Section A.1: path /socket.io, relative origin)
+  // Real-time Socket.IO Connection
   useEffect(() => {
     const socket = io('/', {
       path: '/socket.io',
@@ -116,14 +147,7 @@ export default function App() {
     });
 
     socket.on('connect', () => {
-      console.log('⚡ Connected to AuraSync Telemetry WebSocket:', socket.id);
       socket.emit('telemetry:request');
-    });
-
-    socket.on('telemetry:tick', (data) => {
-      if (data && data.campus) {
-        // preserve live sync
-      }
     });
 
     socket.on('island:event', (event) => {
@@ -196,7 +220,7 @@ export default function App() {
     } catch {}
   };
 
-  // Dedicated Mobile Camera Fullscreen View (Section C.1 & B.5)
+  // Dedicated Mobile Camera Fullscreen View
   if (isMobileCameraRoute) {
     return (
       <Routes>
@@ -208,6 +232,29 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#080C14] text-slate-100 relative selection:bg-emerald-500/30 selection:text-emerald-200">
+      {/* Morphism Loading Screen on First Visit */}
+      <AnimatePresence>
+        {showLoadingScreen && (
+          <MorphismLoadingScreen
+            onComplete={() => {
+              sessionStorage.setItem('aurasync_booted_session', 'true');
+              setShowLoadingScreen(false);
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Accessibility: Skip to Content Anchor Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[9999999] focus:px-4 focus:py-2 focus:bg-emerald-600 focus:text-white focus:rounded-xl focus:shadow-2xl focus:font-bold focus:text-xs"
+      >
+        Skip to main campus content
+      </a>
+
+      {/* Scroll Enhancements: Top Progress Bar & Back to Top Floating Button */}
+      <ScrollEnhancements />
+
       {/* Custom Glowing Pointer & Spotlight */}
       <CustomCursor />
 
@@ -227,15 +274,15 @@ export default function App() {
       />
 
       {/* Page Routing with Fluid Transitions & Error Boundary */}
-      <main className="flex-1 w-full">
+      <main id="main-content" className="flex-1 w-full outline-none">
         <ErrorBoundary>
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={location.pathname}
-              initial={{ opacity: 0, y: 6 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.18 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22, ease: 'easeInOut' }}
             >
               <Routes location={location}>
                 <Route path="/" element={<LandingPage />} />
@@ -269,14 +316,25 @@ export default function App() {
                 <Route path="/settings" element={<SettingsPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/pair" element={<PairPage />} />
+                <Route path="/legal" element={<LegalPage />} />
+                <Route path="/privacy" element={<LegalPage />} />
+                <Route path="/terms" element={<LegalPage />} />
+                <Route path="/refund" element={<LegalPage />} />
+                <Route path="/cookies" element={<LegalPage />} />
               </Routes>
             </motion.div>
           </AnimatePresence>
         </ErrorBoundary>
       </main>
 
-      {/* Footer */}
+      {/* Footer with Business Details, Last Updated & Compliance */}
       <Footer />
+
+      {/* Simple Cookie Consent Banner */}
+      <CookieConsentBanner />
+
+      {/* Floating Emergency & Support Contact Button */}
+      <FloatingContactButton />
 
       {/* Global Modals */}
       <PasskeyModal
@@ -326,7 +384,7 @@ export default function App() {
             </p>
             <button
               onClick={() => setShowEasterEgg(false)}
-              className="mt-4 px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs"
+              className="mt-4 px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs cursor-pointer"
             >
               Back to Campus Twin
             </button>

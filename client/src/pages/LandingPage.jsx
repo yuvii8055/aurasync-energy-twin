@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   Zap,
   Layers,
@@ -13,12 +14,20 @@ import {
   Sliders,
   LifeBuoy,
   Shield,
-  Info
+  Info,
+  ShieldCheck,
+  UserCheck,
+  Building,
+  HelpCircle
 } from 'lucide-react';
 import { formatINR, formatCo2 } from '../lib/utils.js';
 import institutionData from '../config/institution.json';
+import ExpandableFAQ from '../components/common/ExpandableFAQ.jsx';
+import { useAuthStore } from '../store/useAuthStore.js';
 
 export default function LandingPage() {
+  const { user } = useAuthStore();
+
   const modules = [
     {
       to: '/dashboard',
@@ -111,14 +120,14 @@ export default function LandingPage() {
       desc: 'Audit logs, passkey management, and role-based permissions console.'
     },
     {
-      to: '/about',
-      label: 'About DSATM & Team',
-      tag: 'O(1) Outlaws',
-      icon: Info,
-      color: 'from-slate-500/20 to-zinc-500/20',
-      border: 'border-slate-500/30',
-      iconColor: 'text-slate-300',
-      desc: 'Institutional vision, engineering roadmap, and white-label setup.'
+      to: '/legal',
+      label: 'Legal, Privacy & DPDP',
+      tag: 'Compliance',
+      icon: ShieldCheck,
+      color: 'from-emerald-500/20 to-cyan-500/20',
+      border: 'border-emerald-500/30',
+      iconColor: 'text-emerald-400',
+      desc: 'Data minimization, terms, refund policy, cookies, and data erasure portal.'
     }
   ];
 
@@ -128,12 +137,28 @@ export default function LandingPage() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-emerald-500/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-2/3 right-10 w-[500px] h-[400px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Hero Section */}
-      <section className="min-h-[75vh] flex flex-col items-center justify-center text-center px-4 pt-8 pb-16 max-w-6xl mx-auto relative z-10">
+      {/* Hero Section with Scroll Reveal */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="min-h-[75vh] flex flex-col items-center justify-center text-center px-4 pt-8 pb-16 max-w-6xl mx-auto relative z-10"
+      >
         {/* Hackathon Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-6 shadow-sm">
           <Sparkles className="w-3.5 h-3.5" />
           <span>DSATM Hackathon 2026 • AI-Powered Campus Microgrid Digital Twin</span>
+        </div>
+
+        {/* Pre-Authenticated Session Quick Card */}
+        <div className="mb-6 px-4 py-2 rounded-2xl glass-panel bg-white/5 border border-emerald-500/30 flex items-center gap-3 text-xs">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-slate-300 font-medium">
+            Pre-Authenticated Session: <strong className="text-white">{user?.name || 'Dr. Sandhya V. (HOD AIML)'}</strong>
+          </span>
+          <Link to="/login" className="text-emerald-400 underline font-semibold hover:text-emerald-300 ml-1">
+            Switch Profile
+          </Link>
         </div>
 
         {/* Hero Title */}
@@ -203,10 +228,16 @@ export default function LandingPage() {
             <div className="text-xs text-slate-400 mt-1 font-medium">Green Campus Score</div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Complete Module Launcher Grid: Direct 1-Click Access to All 10 Modules */}
-      <section className="py-14 max-w-6xl mx-auto px-4 relative z-10">
+      {/* Complete Module Launcher Grid: Direct 1-Click Access */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.6 }}
+        className="py-14 max-w-6xl mx-auto px-4 relative z-10"
+      >
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Interactive Modules</span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
@@ -251,44 +282,58 @@ export default function LandingPage() {
             );
           })}
         </div>
-      </section>
+      </motion.section>
 
-      {/* Institution Tie-In & Statement Strip */}
-      <section className="py-12 border-y border-white/10 bg-black/40 backdrop-blur-md">
+      {/* Trust, Ethical AI & Compliance Guarantee Strip */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="py-10 border-y border-white/10 bg-black/40 backdrop-blur-md"
+      >
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-6">
             <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">
-              Dayananda Sagar Institutions
+              Ethics & Academic Integrity
             </span>
             <h3 className="text-lg sm:text-xl font-bold text-white mt-1">
-              Fostering Sustainable Educational Ecosystems
+              Zero Dark Patterns • 100% Free Open Academic Platform
             </h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div className="p-4 rounded-2xl glass-panel bg-white/5 border border-white/10">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 mb-2" />
-              <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                "{institutionData.statements[0]}"
-              </p>
+              <CheckCircle2 className="w-5 h-5 text-emerald-400 mx-auto mb-2" />
+              <div className="text-xs font-bold text-white">No Dark Patterns</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">Zero misleading countdowns or sneaky defaults</div>
             </div>
             <div className="p-4 rounded-2xl glass-panel bg-white/5 border border-white/10">
-              <CheckCircle2 className="w-5 h-5 text-cyan-400 mb-2" />
-              <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                "{institutionData.statements[1]}"
-              </p>
+              <CheckCircle2 className="w-5 h-5 text-cyan-400 mx-auto mb-2" />
+              <div className="text-xs font-bold text-white">Zero Hidden Fees</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">100% free educational & research tool</div>
             </div>
             <div className="p-4 rounded-2xl glass-panel bg-white/5 border border-white/10">
-              <CheckCircle2 className="w-5 h-5 text-purple-400 mb-2" />
-              <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                "{institutionData.statements[3]}"
-              </p>
+              <CheckCircle2 className="w-5 h-5 text-purple-400 mx-auto mb-2" />
+              <div className="text-xs font-bold text-white">Authentic Data</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">CEA India 0.71 kg/kWh & BESCOM rates</div>
+            </div>
+            <div className="p-4 rounded-2xl glass-panel bg-white/5 border border-white/10">
+              <CheckCircle2 className="w-5 h-5 text-teal-400 mx-auto mb-2" />
+              <div className="text-xs font-bold text-white">DPDP & GDPR Compliant</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">Self-service data deletion & zero video storage</div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Feature Showcase Grid */}
-      <section className="py-16 max-w-6xl mx-auto px-4">
+      {/* Feature Showcase Grid with Scroll Motion */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.6 }}
+        className="py-16 max-w-6xl mx-auto px-4"
+      >
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest">Core Innovations</span>
           <h2 className="text-3xl font-extrabold text-white mt-2">
@@ -348,7 +393,20 @@ export default function LandingPage() {
             </span>
           </Link>
         </div>
-      </section>
+      </motion.section>
+
+      {/* Expandable FAQs Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.6 }}
+        className="py-14 max-w-4xl mx-auto px-4"
+      >
+        <div className="p-6 sm:p-8 rounded-3xl glass-panel bg-white/[0.03] border border-white/10">
+          <ExpandableFAQ />
+        </div>
+      </motion.section>
 
       {/* Credit Banner */}
       <section className="py-8 bg-gradient-to-r from-emerald-950/40 via-slate-900/40 to-cyan-950/40 border-t border-white/10 text-center px-4">

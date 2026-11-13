@@ -51,6 +51,7 @@ export default function Navbar({ onOpenCommandPalette, onOpenReportModal }) {
     { to: '/helpdesk', label: 'Helpdesk', icon: LifeBuoy, desc: 'Incident reporting & work orders' },
     { to: '/coach', label: 'Aura AI', icon: Sparkles, desc: 'Gemini energy coach' },
     { to: '/admin', label: 'Admin', icon: Shield, desc: 'Governance & user roles' },
+    { to: '/legal', label: 'Legal & Privacy', icon: ShieldCheck, desc: 'Privacy, policies & DPDP charter' },
     { to: '/about', label: 'About', icon: Info, desc: 'DSATM & O(1) Outlaws team' }
   ];
 
