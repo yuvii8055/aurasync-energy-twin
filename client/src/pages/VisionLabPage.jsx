@@ -1002,6 +1002,13 @@ export default function VisionLabPage() {
         onClose={() => setIsDoctorOpen(false)}
         phoneConnected={phoneConnected}
         lastFrameReceivedTime={lastFrameTime}
+        onSimulatePhoneConnect={() => {
+          setPhoneConnected(true);
+          setPhonePreview('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80');
+          setPhoneDeviceName('Smartphone Paired (Live Stream)');
+          setSourceMode('phone');
+          sounds.playChime('success');
+        }}
       />
     </div>
   );

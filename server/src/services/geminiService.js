@@ -11,7 +11,7 @@ dotenv.config(); // fallback to cwd .env
 import { syntheticEngine } from './syntheticEngine.js';
 import { db } from '../db/store.js';
 
-const DEFAULT_MODEL = 'gemini-3.5-flash';
+const DEFAULT_MODEL = 'gemini-flash-lite-latest';
 
 /**
  * Extract live campus grounding context from synthetic engine and store
@@ -247,7 +247,7 @@ export async function streamGeminiChat({
       parts: [{ text: String(m.content).slice(0, 1500) }]
     }));
 
-    const candidateModels = Array.from(new Set([modelName, 'gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-flash-latest']));
+    const candidateModels = Array.from(new Set([modelName, 'gemini-flash-lite-latest', 'gemini-3.8-flash', 'gemini-flash-latest', 'gemini-2.5-pro']));
     let response = null;
     let chosenModel = modelName;
 
